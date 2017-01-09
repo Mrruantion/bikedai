@@ -1,0 +1,255 @@
+.main-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+}
+.content-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    z-index: 1;
+    overflow: auto;
+}
+.bg-gray {
+    background: #f5f5f5;
+}
+.content-layout {
+    min-width: 900px;
+    min-height: 500px;
+}
+.pr20 {
+    padding-right: 20px;
+}
+.pl20 {
+    padding-left: 20px;
+}
+.mem-tips {
+    color: #333333;
+}
+.pr100 {
+    padding-right: 100px;
+}
+.pl100 {
+    padding-left: 100px;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+
+.tc {
+    text-align: center;
+}
+.f12 {
+    font-size: 12px;
+}
+
+.ind-left {
+    width: 68%;
+    height: 400px;
+}
+.mem-top {
+    width: 100%;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.mem-top>div {
+    width: 48.5%;
+    height: 150px;
+    background: #fff;
+}
+
+.mem-info-left {
+    width: 18%;
+    max-width: 70px;
+    height: 150px;
+    line-height: 150px;
+    background: #f9fafc;
+    text-align: center;
+    margin-right: 5%;
+}
+.mem-info-left img {
+    width: 60%;
+    vertical-align: -10px;
+    height: 40px;
+    border-radius: 5px;
+}
+.mem-info-left {
+    width: 18%;
+    max-width: 70px;
+    height: 150px;
+    line-height: 150px;
+    background: #f9fafc;
+    text-align: center;
+    margin-right: 5%;
+}
+.fl {
+    float: left;
+}
+.per-h1 {
+    color: #333;
+    font-size: 18px;
+    margin: 15px 0 10px;
+}
+.per-list {
+    color: #333;
+    font-size: 12px;
+}
+
+.per-list li {
+    height: 16px;
+    margin-bottom: 5px;
+}
+
+.last-time {
+    color: #999;
+    font-size: 12px;
+}
+
+.mem-fenkon h1 {
+    margin-top: 20px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+.mem-fenkon p {
+    margin-top: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+.datas-show {
+    margin-top: 20px;
+    background: #fff;
+}
+
+.datas-show li {
+    float: left;
+    width: 16.6%;
+    text-align: center;
+    height: 80px;
+    position: relative;
+}
+.datas-show li:before {
+    content: ' ';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #f2f4f7;
+}
+.datas-num {
+    padding-top: 15px;
+    font-size: 21px;
+    color: #333;
+    font-weight: bold;
+}
+.datas-name {
+    font-size: 12px;
+}
+
+.record-list {
+    margin-top: 20px;
+    color: #333;
+}
+
+.record-list {
+    margin-top: 20px;
+    color: #333;
+}
+.record-tit {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 13px;
+    background: #f5f6fa;
+    border: 1px solid #e1e6eb;
+    border-left: none;
+    position: relative;
+    border-bottom: none;
+}
+.record-tit:before {
+    content: ' ';
+   /* background: url(./left-line.png) no-repeat center;*/
+    width: 3px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+.ind-chart {
+    width: 100%;
+    height: 280px;
+    background: #ffffff;
+    overflow: hidden;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+.nums-show-wrap {
+    width: 100%;
+    background: #ffffff;
+    position: relative;
+    height: 412px;
+    overflow: hidden;
+}
+.nums-show {
+    padding: 20px 30px;
+    padding-bottom: 5px;
+}
+.nums-show li {
+    float: left;
+    width: 20%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.big-num {
+    font-size: 22px;
+    color: #34ab1c;
+    padding-top: 22px;
+    line-height: 24px;
+}
+.nums-wrap {
+    width: 85px;
+    height: 85px;
+    border: 4px solid #f3f6f8;
+    border-radius: 85px;
+    margin: 0 auto;
+}
+.ind-right {
+    width: 30%;
+    height: 1020px;
+    background: #fff;
+}
+.fr {
+    float: right;
+}
+.record-list.remove-top {
+    margin-top: 0;
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header{
+	height: 60px;
+	line-height: 18px;
+	padding-right: 10px;
+}

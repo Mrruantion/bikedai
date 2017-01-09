@@ -1,34 +1,11 @@
-html {
-  box-sizing: border-box;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6, p, ul {
-  margin: 0;
-  padding: 0;
-}
-
-.layout-aside {
+.layout-aside,
+.layout-aside-collapse {
   width: 100%;
   position: absolute;
   overflow: auto;
   padding-bottom: 24px;
   height: 100%;
-}
-.layout-aside-collapse .layout-logo {
-  width: 32px;
-  margin: 16px;
-  transition: all .3s;
+  top: 50px;
 }
 
 .layout-aside .layout-sider {
@@ -109,8 +86,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .layout-aside .aside-action {
   height: 42px;
   width: 207px;
-  position: absolute;
-  top: 50px;
+  position: fixed;
+  bottom: 0;
   background: #404040;
   color: #fff;
   text-align: center;
@@ -121,5 +98,43 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 .layout-aside-collapse .aside-action {
   width: 64px;
+  transition: all .3s;
+}
+
+.layout-aside .layout-header {
+  background: #fff;
+  height: 64px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.layout-aside .layout-main {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+    position: absolute;
+    top: 0;
+    left: 224px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    transition: all .3s;
+}
+
+.layout-main .ant-menu-submenu {
+	line-height: 64px;
+	height: 64px;
+	float: right;
+}
+
+.layout-aside-collapse .layout-main {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;   
+    position: absolute;
+    top: 0;
+    left: 64px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
   transition: all .3s;
 }

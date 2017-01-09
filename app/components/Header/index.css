@@ -1,3 +1,13 @@
+.header {
+	width: 100%;
+    height: 50px;
+    background-color: #34ab1c;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    min-width: 1050px;
+}
+
 .header-logo {
 	float: left;
 	width: 135px;

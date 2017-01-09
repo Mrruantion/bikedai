@@ -24,7 +24,7 @@ class Header extends React.Component {
   }
   render() {
     return (
-		<div style={{ backgroundColor: "#34ab1c"}}>
+		<div className="header">
 			<div className="header-logo"><img src="./logo.png" width="110px" style={{ marginTop: 12}}/></div>
 			<div className="header-logo2">专注于汽车金融风控</div>
 			<Menu 
