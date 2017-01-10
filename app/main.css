@@ -139,11 +139,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
     transition: all .3s;
 }
 
-.layout-main .ant-menu-submenu {
-	line-height: 64px;
-	height: 64px;
-	float: right;
-}
 
 .layout-aside-collapse .layout-main {
   -webkit-box-sizing: border-box;
@@ -158,4 +153,24 @@ h1, h2, h3, h4, h5, h6, p, ul {
   transition: all .3s;
 }
 
+.topbar {
+    height: 69px;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    display: table;
+}
+.topbar-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+.topbar-tit {
+    border-left: 4px #24a80b solid;
+    padding-left: 8px;
+    font-size: 14px;
+    color: #333;
+    float: left;
+}
+.fr {
+    float: right;
+}
 
