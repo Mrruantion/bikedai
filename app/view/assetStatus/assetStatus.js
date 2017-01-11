@@ -8,7 +8,7 @@ import './index.css'
 const ListSearch = React.createClass({
 	render(){
 		return (
-			<div style={{ marginBottom: 20 }}>
+			<div style={{ marginBottom: 20, marginTop: 20 }}>
 				<Row gutter={16}>
 				  <Col span={6}>
 					设备名称 <Input />
