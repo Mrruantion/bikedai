@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
-import { Menu, Button, Icon, DatePicker, Row, Col, Input } from 'antd'
-const SubMenu = Menu.SubMenu;
-import moment from 'moment';
-const RangePicker = DatePicker.RangePicker;
 
-import { Router, Route, Link, hashHistory, IndexRoute, Redirect, IndexLink} from 'react-router'
-import Page from '../../view/page/page.js'
+import { Menu } from 'antd'
+const SubMenu = Menu.SubMenu;
+
+
+
+
+import PageOne from './page/pageOne.js'
+import PageTwo from './page/pageTwo.js'
+
 import './index.css'
 
 class RiskMain extends React.Component {
@@ -22,6 +24,17 @@ class RiskMain extends React.Component {
 			collapse: !this.state.collapse
 		})
 	}
+	
+	handleClick(e) {
+		const item = e.key-1;
+		const hh = document.getElementById("combox").children;
+		for(var i = 0; i<hh.length; i++){
+			hh[i].className="hide";
+		}
+		hh[item].className="show";
+		console.log(e);
+	}
+	
 	render(){
 		const collapse = this.state.collapse;
 		const { routes, params, children } = this.props;
@@ -29,48 +42,19 @@ class RiskMain extends React.Component {
 			<div id="otherroot">
 				<div className={collapse ? "menu-third-collapse" : "menu-third"}>
 					<div className="menu-third-head">
-						报表统计
+						暗访追车
 					</div>
 					<aside>
-						<Menu mode="inline" theme="light">
-							<Menu.Item key="11"><Link to="/">里程报表</Link></Menu.Item>
-							<Menu.Item key="12"><Link to="/">离线报表</Link></Menu.Item>
+						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)}>
+							<Menu.Item key="1">暗访记录</Menu.Item>
+							<Menu.Item key="2">追车日志</Menu.Item>
 						</Menu>
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className={ collapse ? 'main-box': "main-box main-box-collapse"}>
-					<div className="topbar"> 
-						<div className="topbar-cell">
-								<b className="topbar-tit"><span id="title">暗访追车</span></b>
-						</div>
-						<div className="topbar-cell">
-							<span className="fr">
-								<Button type="primary"><span><Icon type="export" /></span>导出</Button>
-							</span>
-						</div>
-					</div>
-					<Row gutter={12}>
-					  <Col span={9}>
-						<RangePicker
-						  ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}
-						/>
-					  </Col>
-					  <Col span={7}>
-						客户姓名 <Input />
-					  </Col>
-					  <Col span={7}>
-						设备名称 <Input />
-					  </Col>
-					</Row>
-					<Row gutter={16} style={{ marginTop: 20}} >
-					  <Col span={9}>
-						所属组织 <Input style={{ width: "70%"}}/>
-					  </Col>
-					  <Col span={6}>
-						<Button type="primary">查询</Button>
-					  </Col>
-					</Row>
+				<div className={ collapse ? 'main-box': "main-box main-box-collapse"} id="combox">
+					<div className="show"><PageOne /></div>
+					<div className="hide"><PageTwo /></div>
 				</div>
 			</div>
 		)

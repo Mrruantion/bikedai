@@ -69,3 +69,6 @@
 .topbar {
 	margin-bottom: 20px;
 }
+.dataPick .ant-calendar-picker-icon {
+    right: 75px;
+}

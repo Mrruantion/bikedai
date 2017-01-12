@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
-import { Menu, Button, Icon, DatePicker, Row, Col, Input } from 'antd'
+import { Menu } from 'antd'
 const SubMenu = Menu.SubMenu;
-import moment from 'moment';
-const RangePicker = DatePicker.RangePicker;
-import { Router, Route, Link, hashHistory, IndexRoute, Redirect, IndexLink} from 'react-router'
+
+
+
+import PageOne from './page/pageOne.js'
+import PageTwo from './page/pageTwo.js'
 
 import './index.css'
 
@@ -21,6 +22,17 @@ class EquipmentCenter extends React.Component {
 			collapse: !this.state.collapse
 		})
 	}
+	
+	handleClick(e) {
+		const item = e.key-1;
+		const hh = document.getElementById("combox").children;
+		for(var i = 0; i<hh.length; i++){
+			hh[i].className="hide";
+		}
+		hh[item].className="show";
+		console.log(e);
+	}
+	
 	render(){
 		const collapse = this.state.collapse;
 		const { routes, params, children } = this.props;
@@ -31,15 +43,16 @@ class EquipmentCenter extends React.Component {
 						设备中心
 					</div>
 					<aside>
-						<Menu mode="inline" theme="light">
-							<Menu.Item key="1"><Link to="/">我的设备</Link></Menu.Item>
-							<Menu.Item key="2"><Link to="/">我的流量卡</Link></Menu.Item>
+						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)}>
+							<Menu.Item key="1">我的设备</Menu.Item>
+							<Menu.Item key="2">我的流量卡</Menu.Item>
 						</Menu>
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className={ collapse ? 'main-box': "main-box main-box-collapse"}>
-					
+				<div className={ collapse ? 'main-box': "main-box main-box-collapse"} id="combox">
+					<div className="show"><PageOne /></div> 
+					<div className="hide"><PageTwo /></div>
 				</div>
 			</div>
 		)

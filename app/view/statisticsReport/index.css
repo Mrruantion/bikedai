@@ -69,3 +69,9 @@
 .topbar {
 	margin-bottom: 20px;
 }
+.show {
+	display: block;
+}
+.hide {
+	display: none;
+}
