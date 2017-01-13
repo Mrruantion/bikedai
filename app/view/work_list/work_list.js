@@ -9,7 +9,7 @@ import './index.css'
 const ListSearch = React.createClass({
 	render(){
 		return (
-			<div style={{ marginBottom: 20 }}>
+			<div style={{ marginBottom: 20 }} className="changedata">
 				<Row >
 				  <Col span={6}>
 					工单编号 <Input />

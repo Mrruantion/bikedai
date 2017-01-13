@@ -6,7 +6,7 @@ import PageOne from './page/pageOne.js'
 import PageTwo from './page/pageTwo.js'
 import PageThree from './page/pageThree.js'
 
-import './index.css'
+
 
 class AccountMain extends React.Component {
 	constructor(props) {

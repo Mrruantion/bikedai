@@ -1,27 +1,65 @@
-.topbar {
-    height: 69px;
-    width: 100%;
-    border-bottom: 1px solid #e5e5e5;
-    display: table;
+.menu-third {
+    width: 180px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #eaedf1;
+    z-index: 200;
+    font-size: 12px;
 }
-.topbar-cell {
-    display: table-cell;
-    vertical-align: middle;
+.menu-third-collapse {
+    width: 193px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    left: -193px;
 }
-.topbar-tit {
-    border-left: 4px #24a80b solid;
-    padding-left: 8px;
-    font-size: 14px;
-    color: #333;
-    float: left;
+
+.menu-third-head {
+    height: 70px;
+    line-height: 70px;
+    font-weight: bold;
+    color: #111;
+    padding-left: 20px;
+    background: #dfe4e9;
 }
-.fr {
-    float: right;
+
+.menu-third-btn {
+    width: 13px;
+    height: 50px;
+   /*background: url(./images/icon.png) no-repeat -82px -115px;*/
+	background-color: #000; 
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -25px;
+    cursor: pointer;
 }
-.ant-input {
-	width: 60%;
-	margin-left: 5px;
+.menu-third-btn-collapse {
+    /*background: url(./images/icon.png) no-repeat -100px -115px;*/
+    right: -13px;
 }
-.ant-select {
-	margin-left: 5px;
+.main-box {
+	min-width: 900px;
+    min-height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    z-index: 0;
+    background: #fff;
+    overflow: auto;;
+	padding: 0 20px;
+	
+}
+.main-box-collapse{
+	left: 180px;
+}
+
+.changedata .ant-col-12 .ant-input {
+    width: 100%
 }

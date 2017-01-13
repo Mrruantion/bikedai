@@ -17,6 +17,7 @@ import PageTen from './page/pageTen.js'
 import PageEleven from './page/pageEleven.js'
 import PageTwelve from './page/pageTwelve.js'
 import PageThirteen from './page/pageThirteen.js'
+
 import './index.css'
 
 class StatisticsReport extends React.Component {
@@ -48,7 +49,7 @@ class StatisticsReport extends React.Component {
 		const collapse = this.state.collapse;
 		const { routes, params, children } = this.props;
 		return (
-			<div id="otherroot">
+			<div>
 				<div className={collapse ? "menu-third-collapse" : "menu-third"}>
 					<div className="menu-third-head">
 						报表统计

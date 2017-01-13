@@ -21,7 +21,6 @@ import Header from './components/Header/Header.js'
 import AssetStatus from './view/assetStatus/assetStatus.js'
 import LoginUser from './view/loginuser/loginUser.js'
 import Analysis from './view/analysis/analysis.js'
-import Page from './view/page/page.js'
 import StatisticReport from './view/statisticsReport/statisticsReport.js'
 import RiskMain from './view/riskMain/riskMain.js'
 import CustomerList from './view/customer_list/customer_list.js'
@@ -63,7 +62,7 @@ class App extends React.Component {
 			  <Menu mode={collapse ? "vertical" : "inline"} theme="dark" defaultSelectedKeys={['user']}>
 				<SubMenu key="sub1" title={<span><Icon type="mail" />{!collapse && <span className="nav-text">风控服务</span>}</span>}>
 					<Menu.Item key="1"><Link to="/assetStatus">资产状态</Link></Menu.Item>
-					<Menu.Item key="2"><Link to="/page">位置跟踪</Link></Menu.Item>
+					<Menu.Item key="2"><Link to="/">位置跟踪</Link></Menu.Item>
 					<Menu.Item key="3"><Link to="/analysis">趋势分析</Link></Menu.Item>
 					<Menu.Item key="4"><Link to="/statisticReport">报表统计</Link></Menu.Item>
 					<Menu.Item key="5"><Link to="/riskMain">暗访追车</Link></Menu.Item>
@@ -102,7 +101,7 @@ render((
             <IndexRoute breadcrumbName="增加车辆信息" component={LoginUser} />
 			<Route path="/loginUser" component={LoginUser} />
 			<Route path="/analysis" component={Analysis} />
-			<Route path="/page" component={Page} />
+			
 			<Route path="/assetStatus" component={AssetStatus} />
 			<Route path="/statisticReport" component={StatisticReport} />
 			<Route path="/riskMain" component={RiskMain} />

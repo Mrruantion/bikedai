@@ -139,7 +139,7 @@ export default class PageOne extends React.Component {
 						<Col span={5}>
 							所属组织 <Input />
 						</Col>
-						<Col span={6}>
+						<Col span={8}>
 							添加时间 <DatePicker />
 						</Col>
 						<Col span={3}>

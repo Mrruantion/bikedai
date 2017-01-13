@@ -85,3 +85,55 @@
 	padding: 0; 
 	height: 400px;
 }
+
+/*二维码*/
+.everycode {
+    width: 140px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px #ddd;
+    -moz-box-shadow: 0 2px 4px #ddd;
+    -webkit-box-shadow: 0 2px 4px #ddd;
+    background: #ffffff;
+    position: absolute;
+    left: -1px;
+    top: 50px;
+}
+.everycode img {
+    width: 120px;
+    height: 120px;
+}
+.everycode p {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+
+/*账号登录*/
+.header-nav .loginout {
+	background-color: #fff;
+	display: block;
+    text-align: center;
+	outline: 0;
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
+    line-height: 50px;
+    font-size: 14px;
+    position: relative;
+	border-top: 1px solid #e5e5e5;
+	box-shadow: 0 2px 4px #ddd;
+	-webkit-box-shadow: 0 2px 4px #ddd;
+}
+.header-nav .loginout:hover {
+	background-color: #fff;
+}
+.logout .anticon:before {
+    position: relative;
+    left: 3px;
+}
+.logout .logout-icon::before{
+	content: "\E607"
+}

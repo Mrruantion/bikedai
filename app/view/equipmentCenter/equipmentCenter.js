@@ -44,7 +44,7 @@ class EquipmentCenter extends React.Component {
 					</div>
 					<aside>
 						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)}>
-							<Menu.Item key="1">我的设备</Menu.Item>
+							<Menu.Item key="1" aria-selected="true">我的设备</Menu.Item>
 							<Menu.Item key="2">我的流量卡</Menu.Item>
 						</Menu>
 					</aside>

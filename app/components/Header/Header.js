@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
+import LoginUser from '../../view/loginuser/loginUser.js'
+import MessageCenter from '../../view/messageCenter/messageCenter.js'
+import TrainingCenter from '../../view/trainingCenter/trainingCenter.js'
+
 import './index.css'
 import { Menu, Icon, Modal, Button, Tabs, Table } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -149,28 +153,48 @@ class Header extends React.Component {
 	  })
 	  
   }
+  
+  handleMousemove(e){
+	  e.stopepropagation
+	  const qcode = document.getElementById("qcode");
+	  
+	  qcode.style.display = "block"
+  }
+  handleMouseLeave(e){
+	  e.stopepropagation
+	  const qcode = document.getElementById("qcode");
+	  qcode.style.display = "none";
+  }
+  handlelogout() {
+	  const logout = document.getElementById("logout");
+	  logout.style.backgroundColor = "#fff";
+	  logout.style.color = "#000";
+	  logout.nextSibling.style.display = "block";
+  }
+  handlelogoutLeave(){
+	  const logout = document.getElementById("logout");
+	  logout.style.backgroundColor = "#2ca015";
+	  logout.style.color = "#fff";
+	  logout.nextSibling.style.display = "none";
+  }
   render() {
     return (
 		<div className="header">
 			<div className="header-logo"><img src="./logo.png" width="110px" style={{ marginTop: 12}}/></div>
 			<div className="header-logo2">专注于汽车金融风控</div>
-			<Menu 
-				mode="horizontal"
-				style={{ width: 75, float: "right",  height:50}}
-			>
-				<SubMenu key="sub1" title="ceshihao">
-					<Menu.Item key="1">退出</Menu.Item>
-				</SubMenu>
-				    </Menu>
 			<ul className="header-nav">
-				<li>
-					 <Link to="" style={{ color: "#fff"}}>培训中心</Link>
+				<li className="logout" onMouseEnter={this.handlelogout} onMouseLeave={this.handlelogoutLeave}>
+					<Link to="#" style={{ color: "#fff"}} id="logout">ceshihao<Icon type="caret-down" /></Link>
+					<a href="#" className="loginout" style={{ display: "none"}}>退出</a>
 				</li>
 				<li>
-					<Link style={{ color: "#fff"}}><Icon type="mail" />公告通知</Link>
+					 <Link to="/trainingCenter">培训中心</Link>
 				</li>
 				<li>
-					<Link to="" style={{ color: "#fff"}}><Icon type="notification" />"预警中心</Link>
+					<Link to="/messageCenter"><Icon type="mail" />公告通知</Link>
+				</li>
+				<li>
+					<Link to=""><Icon type="notification" />"预警中心</Link>
 				</li>
 				<li>
 					<a href="#" style={{ color: "#fff"}} onClick={this.showModal.bind(this)}><Icon type="message" />消息</a>
@@ -191,8 +215,12 @@ class Header extends React.Component {
 				<li>
 					<Link to="" style={{ color: "#fff"}}>Access Key</Link>
 				</li>
-				<li>
-					<Link to="" style={{ color: "#fff"}}><Icon type="mobile" />手机版</Link>
+				<li onMouseEnter={this.handleMousemove} onMouseLeave={this.handleMouseLeave}>
+					<Link><Icon type="mobile" />手机版</Link>
+					<div className="everycode" style={{ display: "none"}} id="qcode">
+						<img src="./images/everycode.jpg" alt="二维码" />
+						<p>扫码下载手机版<br />隼目车贷管家</p>
+					</div>
 				</li>
 			</ul>
 		</div>

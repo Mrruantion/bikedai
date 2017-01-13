@@ -4,7 +4,8 @@ var webpack = require('webpack');
 // entry_json["/app/main.js"]=__dirname + "/app/main.js";
 // entry_json['/common.js']=['react','react-dom','antd'];
 // console.log(entry_json);
-
+var p=__dirname + "/public";
+console.log(p);
 module.exports = {
   entry:  __dirname + "/app/main.js",//已多次提及的唯一入口文件
   output: {

@@ -24,33 +24,9 @@
     min-width: 900px;
     min-height: 500px;
 }
-.pr20 {
-    padding-right: 20px;
-}
-.pl20 {
-    padding-left: 20px;
-}
+
 .mem-tips {
     color: #333333;
-}
-.pr100 {
-    padding-right: 100px;
-}
-.pl100 {
-    padding-left: 100px;
-}
-.mb20 {
-    margin-bottom: 20px;
-}
-.mt20 {
-    margin-top: 20px;
-}
-
-.tc {
-    text-align: center;
-}
-.f12 {
-    font-size: 12px;
 }
 
 .ind-left {
@@ -98,9 +74,7 @@
     text-align: center;
     margin-right: 5%;
 }
-.fl {
-    float: left;
-}
+
 .per-h1 {
     color: #333;
     font-size: 18px;
@@ -241,9 +215,7 @@
     height: 1020px;
     background: #fff;
 }
-.fr {
-    float: right;
-}
+
 .record-list.remove-top {
     margin-top: 0;
 }

@@ -1,4 +1,4 @@
-html {
+﻿html {
   box-sizing: border-box;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul {
@@ -28,10 +28,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 .layout-aside .layout-sider {
-  width: 224px;
+  width: 200px;
   background: #404040;
   position: absolute;
-  overflow: auto;
+  overflow: scroll;
   padding-bottom: 42px;
   height: 100%;
   transition: all .3s;
@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   width: 64px;
   overflow: visible;
   transition: all .3s;
+  z-index: 999;
 }
 
 .layout-aside .layout-sider > .menu {
@@ -104,7 +105,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 /* 实际使用中需要改成 position: fixed */
 .layout-aside .aside-action {
   height: 42px;
-  width: 207px;
+  width: 183px;
   position: fixed;
   bottom: 0;
   background: #404040;
@@ -132,7 +133,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
     box-sizing: border-box;    
     position: absolute;
     top: 0;
-    left: 224px;
+    left: 183px;
     right: 0;
     bottom: 0;
     overflow-y: auto;
@@ -150,9 +151,69 @@ h1, h2, h3, h4, h5, h6, p, ul {
     right: 0;
     bottom: 0;
     overflow-y: auto;
-  transition: all .3s;
+	transition: all .3s;
+}
+.menu-third {
+    width: 180px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #eaedf1;
+    z-index: 200;
+    font-size: 12px;
+}
+.menu-third-collapse {
+    width: 193px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    left: -193px;
 }
 
+.menu-third-head {
+    height: 70px;
+    line-height: 70px;
+    font-weight: bold;
+    color: #111;
+    padding-left: 20px;
+    background: #dfe4e9;
+}
+
+.menu-third-btn {
+    width: 13px;
+    height: 50px;
+    /*background: url(./icon.png) no-repeat -82px -115px;*/
+	background-color: #000;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    margin-top: -25px;
+    cursor: pointer;
+}
+.menu-third-btn-collapse {
+	/*background: url(../img/icon.png) no-repeat -100px -115px;*/
+    right: -13px;
+}
+.main-box {
+	min-width: 900px;
+    min-height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    z-index: 0;
+    background: #fff;
+    overflow: auto;
+	padding: 0 20px;
+	
+}
+.main-box-collapse{
+	left: 180px;
+}
 .topbar {
     height: 69px;
     width: 100%;
@@ -173,4 +234,61 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .fr {
     float: right;
 }
+.fl {
+    float: left;
+}
+.pr20 {
+    padding-right: 20px;
+}
+.pr100 {
+    padding-right: 100px;
+}
+.pl20 {
+    padding-left: 20px;
+}
+.pl100 {
+    padding-left: 100px;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+.mt20 {
+    margin-top: 20px;
+}
 
+.tc {
+    text-align: center;
+}
+.f12 {
+    font-size: 12px;
+}
+.show {
+	display: block;
+	transition: all 1.3s;
+}
+.hide {
+	display: none;
+	transition: all 1.3s;
+}
+
+/*控制内部导航的颜色*/
+.layout-main .ant-menu {
+	background-color: #eaedf1;
+}
+.layout-main .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #fff;
+}
+.layout-main .ant-menu-inline .ant-menu-selected, .ant-menu-inline .ant-menu-item-selected {
+    border-right: 3px solid #fff;
+}
+
+/*控制button的外边距*/
+.topbar-cell .ant-btn {
+	margin-left: 5px;
+}
+
+/*控制图标的位置*/
+.anticon:before {
+    position: relative;
+    left: -3px;
+}

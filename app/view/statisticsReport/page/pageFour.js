@@ -64,7 +64,7 @@ export default class PageFour extends React.Component {
 						</span>
 					</div>
 				</div>
-				<Row>
+				<Row style={{ marginTop: 20}}>
 					<Col span={9}>
 						<RangePicker
 							ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}

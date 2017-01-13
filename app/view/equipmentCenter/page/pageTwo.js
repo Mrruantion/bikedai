@@ -21,37 +21,37 @@ const rowSelection = {
 	}),
 };
 
-export default class PageOne extends React.Component {
+export default class PageTwo extends React.Component {
 	constructor(props){
 		super(props)
 		this.columns = [{
 			title: '物联网卡',
 			dataIndex: 'internet_card',
-			width: '10%',
+			width: '12%',
 		}, {
 			title: 'ICCID',
 			dataIndex: 'ICCID',
-			width: '8%',
+			width: '10%',
 		}, {
 			title: '套餐类型',
 			dataIndex: 'package_type',
-			width: '8%',
+			width: '10%',
 		}, {
 			title: '卡商',
 			dataIndex: 'card',
-			width: '6%',
+			width: '10%',
 		},{
 			title: '所属组织',
 			dataIndex: 'organization',
-			width: '8%',
+			width: '12%',
 		},{
 			title: '付费方式',
 			dataIndex: 'payment_method',
-			width: '8%',
+			width: '12%',
 		},{
 			title: '添加日期',
 			dataIndex: 'add_date',
-			width: '8%',
+			width: '12%',
 		},{
 			title: '激活日期到期日期',
 			dataIndex: 'activation_date',
@@ -114,7 +114,7 @@ export default class PageOne extends React.Component {
 								<Option value="包年">包年</Option>
 							</Select>
 						</Col>
-						<Col span={6}>
+						<Col span={8}>
 							添加时间 <DatePicker />
 						</Col>
 						<Col span={3}>
