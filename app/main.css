@@ -79,7 +79,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #fff;
   transition: all 0s ease;
 }
-
+.layout-aside .layout-sider .ant-menu-item > a {
+    display: block;
+    color: #fff;
+}
 .layout-aside-collapse .layout-sider > .menu > .menu-item:hover .nav-text {
   display: inline-block;
   vertical-align: top;
@@ -102,6 +105,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
   transform: rotate(270deg) scale(0.75);
 }
+
+.layout-aside .layout-sider .ant-menu.ant-menu-dark .ant-menu-item-selected {
+    background-color: #108ee9;
+}
+
+
 /* 实际使用中需要改成 position: fixed */
 .layout-aside .aside-action {
   height: 42px;

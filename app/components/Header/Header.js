@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import LoginUser from '../../view/loginuser/loginUser.js'
+import MainRight from '../../view/main_right/MainRight.js'
 import MessageCenter from '../../view/messageCenter/messageCenter.js'
 import TrainingCenter from '../../view/trainingCenter/trainingCenter.js'
 
@@ -173,7 +173,7 @@ class Header extends React.Component {
   }
   handlelogoutLeave(){
 	  const logout = document.getElementById("logout");
-	  logout.style.backgroundColor = "#2ca015";
+	  logout.style.backgroundColor = "#108ee9";
 	  logout.style.color = "#fff";
 	  logout.nextSibling.style.display = "none";
   }
@@ -184,7 +184,7 @@ class Header extends React.Component {
 			<div className="header-logo2">专注于汽车金融风控</div>
 			<ul className="header-nav">
 				<li className="logout" onMouseEnter={this.handlelogout} onMouseLeave={this.handlelogoutLeave}>
-					<Link to="#" style={{ color: "#fff"}} id="logout">ceshihao<Icon type="caret-down" /></Link>
+					<Link to="/mainRight" style={{ color: "#fff"}} id="logout">ceshihao<Icon type="caret-down" /></Link>
 					<a href="#" className="loginout" style={{ display: "none"}}>退出</a>
 				</li>
 				<li>

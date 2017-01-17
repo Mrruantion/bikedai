@@ -115,7 +115,7 @@ class CustomerList extends React.Component {
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
-									<Button type="primary"><span><Icon type="plus-circle-o" /></span><Link to="/customerAdd">添加</Link></Button>
+									<Button type="primary"><Link to="/customerAdd" style={{ color: '#fff'}}><span><Icon type="plus-circle-o" /></span>添加</Link></Button>
 									<Button type="primary"><span><Icon type="minus-circle-o" /></span>删除</Button>
 									<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 								</span>
