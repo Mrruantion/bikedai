@@ -1,0 +1,26 @@
+.risk .ant-input {
+    width: 70%;
+}
+
+.record {
+    padding: 20px 0;
+    border: 1px solid #e1e6eb;
+    background: #f5f6fa;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.record .ant-input {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.ant-upload-select-picture-card i {
+  font-size: 28px;
+  color: #999;
+}
+
+.ant-upload-select-picture-card .ant-upload-text {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}

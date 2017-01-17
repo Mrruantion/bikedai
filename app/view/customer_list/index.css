@@ -5,3 +5,35 @@
 .ant-select {
 	margin-left: 5px;
 }
+.customer .record-list.remove-top {
+    margin-top: 0;
+}
+.customer .record-list {
+    margin-top: 20px;
+    color: #333;
+}
+.customer .record-tit {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 13px;
+    background: #f5f6fa;
+    border: 1px solid #e1e6eb;
+    border-left: none;
+    position: relative;
+    border-bottom: none;
+}
+.customer .record-edit {
+    border: 1px solid #e1e6eb;
+    padding: 10px 20px;
+    position: relative;
+}
+.customer .record-tit:before {
+    content: ' ';
+    background: url(http://localhost:4000/images/left-line.png) no-repeat center;
+    width: 3px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+}

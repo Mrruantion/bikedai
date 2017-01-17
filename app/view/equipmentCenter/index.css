@@ -1,6 +1,9 @@
 .dataPick .ant-calendar-picker-icon {
-    right: 75px;
+    right: 0px;
 }
 .dataPick .ant-col-8 {
     width: 26.333333%;
+}
+.equip .ant-calendar-picker .ant-input {
+    width: 100%;
 }

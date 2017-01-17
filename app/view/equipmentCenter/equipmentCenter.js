@@ -50,7 +50,7 @@ class EquipmentCenter extends React.Component {
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className={ collapse ? 'main-box': "main-box main-box-collapse"} id="combox">
+				<div className={ collapse ? 'main-box equip': "main-box main-box-collapse equip"} id="combox">
 					<div className="show"><PageOne /></div> 
 					<div className="hide"><PageTwo /></div>
 				</div>

@@ -114,7 +114,7 @@ export default class PageTwo extends React.Component {
 								<Option value="包年">包年</Option>
 							</Select>
 						</Col>
-						<Col span={8}>
+						<Col span={8} className="equip">
 							添加时间 <DatePicker />
 						</Col>
 						<Col span={3}>

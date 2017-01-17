@@ -30,16 +30,17 @@
 .menu-third-btn {
     width: 13px;
     height: 50px;
-   /*background: url(./images/icon.png) no-repeat -82px -115px;*/
-	background-color: #000; 
+    background: url(http://localhost:4000/images/icon.png) no-repeat -82px -115px;
+	/*background-color: #000; */
     position: absolute;
     top: 50%;
     right: 0px;
     margin-top: -25px;
     cursor: pointer;
+    z-index: 999;
 }
 .menu-third-btn-collapse {
-    /*background: url(./images/icon.png) no-repeat -100px -115px;*/
+    background: url(http://localhost:4000/images/icon.png) no-repeat -100px -115px;
     right: -13px;
 }
 .main-box {

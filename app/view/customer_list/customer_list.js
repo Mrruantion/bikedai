@@ -4,6 +4,7 @@ const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
 import './index.css'
+import { Link } from 'react-router'
 
 const ListSearch = React.createClass({
 	render(){
@@ -114,7 +115,7 @@ class CustomerList extends React.Component {
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
-									<Button type="primary"><span><Icon type="plus-circle-o" /></span>添加</Button>
+									<Button type="primary"><span><Icon type="plus-circle-o" /></span><Link to="/customerAdd">添加</Link></Button>
 									<Button type="primary"><span><Icon type="minus-circle-o" /></span>删除</Button>
 									<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 								</span>
@@ -122,7 +123,7 @@ class CustomerList extends React.Component {
 						 </div>
 						 <div style={{ marginTop: 30 }}>
 							<ListSearch />
-							<Table rowSelection={rowSelection} columns={columns} />;
+							<Table rowSelection={rowSelection} columns={columns} />
 						 </div>
 					</div>
 				</div>	

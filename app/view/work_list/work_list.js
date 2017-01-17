@@ -11,18 +11,16 @@ const ListSearch = React.createClass({
 		return (
 			<div style={{ marginBottom: 20 }} className="changedata">
 				<Row >
-				  <Col span={6}>
+				  <Col span={5}>
 					工单编号 <Input />
 				  </Col>
 				  <Col span={12}>
 					起至时间 <RangePicker />
 				  </Col>
-				  <Col span={6}>
+				  <Col span={5}>
 					关键字 <Input />
 				  </Col>
-				</Row>
-				<Row style={{ marginTop: 20 }}>
-				  <Col span={6}>
+				   <Col span={2}>
 					<Button type="primary">查询</Button>
 				  </Col>
 				</Row>
@@ -68,7 +66,7 @@ class WorkList extends React.Component {
 							<span>
 								<a>删除</a>
 							</span>
-						</div>);
+						</div>)
 			},
 		}];
 		
@@ -92,7 +90,7 @@ class WorkList extends React.Component {
 						 </div>
 						 <div style={{ marginTop: 30 }}>
 							<ListSearch />
-							<Table  columns={columns} />;
+							<Table  columns={columns} />
 						 </div>
 					</div>
 				</div>	
