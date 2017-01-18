@@ -21,6 +21,7 @@ import Header from './components/Header/Header.js'
 import AssetStatus from './view/assetStatus/assetStatus.js'
 import MainRight from './view/main_right/MainRight.js'
 import Analysis from './view/analysis/analysis.js'
+import Position from './view/position/position.js'
 import StatisticReport from './view/statisticsReport/statisticsReport.js'
 import RiskMain from './view/riskMain/riskMain.js'
 import CustomerList from './view/customer_list/customer_list.js'
@@ -28,6 +29,7 @@ import CustomerAdd from './view/customer_list/customer_add.js'
 import EquipmentCenter from './view/equipmentCenter/equipmentCenter.js'
 import Area from './view/area/area.js'
 import EventList from './view/event_list/event_list.js'
+import EventAdd from './view/event_list/event_add.js'
 import AccountMain from './view/accountMain/accountMain.js'
 import WorkList from './view/work_list/work_list.js'
 import MessageCenter from './view/messageCenter/messageCenter.js'
@@ -62,7 +64,7 @@ class App extends React.Component {
 			  <Menu mode={collapse ? "vertical" : "inline"} theme="dark" defaultOpenKeys={['sub1','sub2','sub3']} style={{ color: '#c4c7ca' }}>
 				<SubMenu key="sub1" title={<span><Icon type="cloud-o" />{!collapse && <span className="nav-text">风控服务</span>}</span>}>
 					<Menu.Item key="1"><Link to="/assetStatus">资产状态</Link></Menu.Item>
-					<Menu.Item key="2"><Link to="/">位置跟踪</Link></Menu.Item>
+					<Menu.Item key="2"><Link to="/position">位置跟踪</Link></Menu.Item>
 					<Menu.Item key="3"><Link to="/analysis">趋势分析</Link></Menu.Item>
 					<Menu.Item key="4"><Link to="/statisticReport">报表统计</Link></Menu.Item>
 					<Menu.Item key="5"><Link to="/riskMain">暗访追车</Link></Menu.Item>
@@ -101,7 +103,7 @@ render((
             <IndexRoute component={MainRight} />
 			<Route path="/mainRight" component={MainRight} />
 			<Route path="/analysis" component={Analysis} />
-			
+			<Route path="/position" component={Position} />
 			<Route path="/assetStatus" component={AssetStatus} />
 			<Route path="/statisticReport" component={StatisticReport} />
 			<Route path="/riskMain" component={RiskMain} />
@@ -110,6 +112,7 @@ render((
 			<Route path="/equipmentCenter" component={EquipmentCenter} />
 			<Route path="/area" component={Area} />
 			<Route path="/event_list" component={EventList} />
+			<Route path="/eventAdd" component={EventAdd} />
 			<Route path="/accountMain" component={AccountMain} />
 			<Route path="/work_list" component={WorkList} />
 			<Route path="/messageCenter" component={MessageCenter} />

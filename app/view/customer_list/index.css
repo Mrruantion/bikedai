@@ -49,3 +49,16 @@
 .position .ant-btn {
    border-radius: 0 4px 4px 0
 }
+
+.customermsg .ant-form-item {
+   margin-bottom: 0;
+}
+
+.carmsg {
+   height: 290px;
+}
+
+.carmsg .record-edit {
+   height: 250px;
+   overflow: hidden;   
+}

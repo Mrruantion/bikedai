@@ -1,0 +1,66 @@
+.positionMap {
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+.left-direct {
+    border-right: 1px solid #b5b9c0;
+    z-index: 2000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 264px;
+    height: 100%;
+    cursor: pointer; 
+    background: #fff;
+}
+.positionHeader {
+	width: 100%;
+    position: absolute;
+    left: 264px;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 2px #caced5;
+    min-width: 800px;
+    color: #333;
+	height: 29px;
+    line-height: 29px;
+    font-size: 13px;
+    background: #000;
+    border-top: none;
+}
+.positionMap .hlf{
+	left: 0px;
+}
+.positionMap .lf{
+	left: -265px;
+}
+.left-direct .row-btn {
+    width: 30px;
+    top: 50%;
+    margin-top: -32px;
+    background: url(http://localhost:4000/images/row2.png) no-repeat center;
+    right: -28px;
+    height: 65px;
+    position: absolute;
+    cursor: pointer;
+}
+.left-direct .on {
+    background: url(http://localhost:4000/images/row1.png) no-repeat top left;
+	right: -34px;
+}
+
+.positionContent {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+    background: #ddd;
+}

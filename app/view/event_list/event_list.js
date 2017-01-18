@@ -3,6 +3,8 @@ import { Button, Icon, Tabs, Input, Row, Col, Select, Table } from 'antd'
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
+import { Link } from 'react-router'
+
 import './index.css'
 
 const ListSearch = React.createClass({
@@ -107,7 +109,7 @@ class EventList extends React.Component {
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
-									<Button type="primary"><span><Icon type="plus-circle-o" /></span>添加</Button>
+									<Button type="primary"><Link to="/eventAdd" ><span><Icon type="plus-circle-o" /></span>添加</Link></Button>
 									<Button type="primary"><span><Icon type="minus-circle-o" /></span>删除</Button>
 									<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 								</span>
@@ -115,7 +117,7 @@ class EventList extends React.Component {
 						 </div>
 						 <div style={{ marginTop: 30 }}>
 							<ListSearch />
-							<Table rowSelection={rowSelection} columns={columns} />;
+							<Table rowSelection={rowSelection} columns={columns} />
 						 </div>
 					</div>
 				</div>	
