@@ -264,7 +264,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .mt20 {
     margin-top: 20px;
 }
-
+.mb30 {
+    margin-bottom: 30px;
+}
+.mt30 {
+    margin-top: 30px;
+}
 .tc {
     text-align: center;
 }
@@ -301,3 +306,16 @@ h1, h2, h3, h4, h5, h6, p, ul {
     position: relative;
     left: -3px;
 }
+
+
+.content-layout {
+    min-width: 900px;
+    min-height: 500px;
+}
+.pr20 {
+    padding-right: 20px;
+}
+.pl20 {
+    padding-left: 20px;
+}
+                        

@@ -4,7 +4,7 @@
     background-color: #108ee9;
     position: fixed;
     top: 0;
-    z-index: 9999;
+    z-index: 1000;
     min-width: 1050px;
 }
 
@@ -33,7 +33,7 @@
     float: right;
     position: relative;
 }
-.header-nav li >a {
+.header-nav li a {
 	display: block;
     padding: 0 10px;
     color: #fff;
@@ -43,10 +43,18 @@
     font-size: 14px;
     position: relative;
 }
-.header-nav li >a:hover {
+.header-nav li a:hover {
 	background-color: #1186e2;
 }
 
+.header-nav .gg-tips {
+    width: 16px;
+    height: 16px;
+    background: url(http://localhost:4000/images/yjtips.png) no-repeat;
+    top: 8px;
+    right: 5px;
+    position: absolute;
+}
 .header-link {
 	color: #fff;
     background: transparent;
@@ -136,4 +144,113 @@
 }
 .logout .logout-icon::before{
 	content: "\E607"
+}
+
+
+/*消息*/
+.ant-modal-wrap  .ant-tabs-nav-scroll {
+    background-color: #108ee9;
+}
+.ant-modal-wrap  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    background-color: #108ee9;
+    color: #fff;
+    border: 1px solid #108ee9;
+}
+.ant-modal-wrap .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+    background: #fff;
+    color: #f39000;
+}
+
+/*预警中心*/
+
+.warmCenter {
+   height: 462px;
+}
+.warmCenter .history-head {
+    height: 35px;
+    line-height: 35px;
+    background: #108ee9;
+    width: 100%;
+    border-bottom: none;
+}
+.warmCenter .history-head .fl {
+    padding-left: 20px;
+    color: #fff;
+    font-size: 13px;
+}
+.warmCenter .history-head .mr40 {
+    color: #fff;
+    font-size: 13px;
+    margin-right: 40px;
+}
+.ant-modal-close-x:before {
+    color: #fff;
+}
+
+
+.warmCenter .history-content {
+    border-right: 1px solid #ddd;
+    background: #fff;
+    width: 280px;
+}
+
+.warmCenter .history-tit {
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    background: #eaedf1;
+    border-bottom: solid 1px #83cdce;
+}
+
+.warmCenter .page-bot {
+    height: 40px;
+    width: 100%;
+    background: #eaedf1;
+    color: #0196c8;
+    text-align: center;
+    line-height: 40px;
+}
+
+.warmCenter .history-detail {
+    width: 519px;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.warmCenter .showWrap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+}
+
+.warmCenter .detail-top {
+    display: table;
+    width: 100%;
+}
+
+.warmCenter .history-detail li {
+    border-bottom: 1px solid #ccc;
+    min-height: 36px;
+}
+
+.warmCenter .la {
+    background: url(http://localhost:4000/images/la.png) no-repeat;
+    width: 53px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -26.5px;
+    z-index: 200;
+    margin-top: -1px;
+}
+.warmCenter .mapWrap {
+    width: 100%;
+    height: 425px;
+    overflow: hidden;
+}
+.ant-modal-body {
+    height: auto;
 }

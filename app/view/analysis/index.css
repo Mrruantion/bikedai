@@ -1,0 +1,21 @@
+.analysis {
+   margin-top: 20px;
+}
+.analysis .ant-input {
+   width: 100%;
+}
+.analysis .ant-radio-group {
+    margin-left: 75px;
+}
+
+.lines {
+    border: none;
+    width: 100%;
+    height: 0px;
+}
+.dashed {
+    border-bottom: 1px dashed #ccc;
+}
+.query-bar .ant-select-selection {
+    width: 100px;
+}

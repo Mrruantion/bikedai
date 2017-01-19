@@ -6,7 +6,7 @@ import MessageCenter from '../../view/messageCenter/messageCenter.js'
 import TrainingCenter from '../../view/trainingCenter/trainingCenter.js'
 
 import './index.css'
-import { Menu, Icon, Modal, Button, Tabs, Table } from 'antd';
+import { Menu, Icon, Modal, Button, Tabs, Table, Badge, Checkbox } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
@@ -122,42 +122,88 @@ class TableThree extends React.Component {
 	}
 }
 
+class WarmCenter extends React.Component {
+	render(){
+		return (
+			<div className="warmCenter">
+				<div className="history-head">
+				   <div className="fl"><b id="historyGeneral">0条, 未解除0条</b></div>
+				   <div className="fr mr40">
+						<Checkbox>开启报警声音</Checkbox>
+				   </div>
+				</div>
+				<div className="history">
+				   <div className="history-content fl">
+					   <div className="history-tit">
+						  
+					   </div>
+					   <div className="tab-cont">
+						  
+					   </div>                       
+					   <div className="page-bot">
+						  
+					   </div>
+				   </div>
+				   <div className="fl history-detail">
+					   <div className="showWrap">
+						   <ul className="detail-top">
+							   <li><b>设备名称:</b><em id="his_detail_name"></em></li> 
+							   <li><b>报警类型</b><em id="his_detail_type"></em></li>
+							   <li><b>报警时间</b><em id="his_detail_time"></em></li>
+							   <li><b>地点</b><em id="his_detail_pos"></em></li>
+						   </ul>
+						   <div className="la"></div>
+					   </div>
+					   <div className="mapWrap">
+						   
+					   </div> 
+				   </div>
+				</div>
+			</div>
+		)
+	}
+	
+}
+
 class Header extends React.Component {
   constructor(props) {
 	  super(props)
 	  this.state = {
-		  current: 'mail',
 		  visible: false,
 	  }
-	  this.handleClick = this.handleClick.bind(this);
-	  this.handleOk = this.handleOk.bind(this);
+	  this.messageClick = this.messageClick.bind(this);
+	  this.warmClick = this.warmClick.bind(this);
   }
-  
-  showModal() {
+  /*消息弹出层*/
+  messageModal() {
     this.setState({
       visible: true,
     });
   }
-  
-  handleOk() {
-    console.log('Clicked OK');
-    this.setState({
-      visible: false,
-    });
-  }
-  handleClick(e) {
+  messageClick(e) {
 	  console.log('click' ,e);
 	  this.setState({
-		  current: e.key,
 		  visible: false,
-	  })
-	  
+	  });
   }
+  
+  /*预警中心弹出层*/
+  warmModal() {
+    this.setState({
+      warmvisible: true,
+    });
+  }
+  
+  warmClick(e) {
+	  this.setState({
+		  warmvisible: false,
+	  });
+  }
+ 
   
   handleMousemove(e){
 	  e.stopepropagation
 	  const qcode = document.getElementById("qcode");
-	  
 	  qcode.style.display = "block"
   }
   handleMouseLeave(e){
@@ -192,17 +238,29 @@ class Header extends React.Component {
 				</li>
 				<li>
 					<Link to="/messageCenter"><Icon type="mail" />公告通知</Link>
+					<i className="gg-tips"></i>
 				</li>
 				<li>
-					<Link to=""><Icon type="notification" />"预警中心</Link>
-				</li>
-				<li>
-					<a href="#" style={{ color: "#fff"}} onClick={this.showModal.bind(this)}><Icon type="message" />消息</a>
+					<a href="javascript:;" onClick={this.warmModal.bind(this)} ><Icon type="notification" />"预警中心</a>
 					<Modal 
 						width={800}
+						height={462}
+						className="center"
+						visible={this.state.warmvisible}
+						  onCancel={this.warmClick}
+						  maskClosable={false}
+						  footer=""
+					>
+					  <WarmCenter />
+					</Modal>
+				</li>
+				<li className="message">
+					<a href="javascript:;" onClick={this.messageModal.bind(this)}><Icon type="message" />消息</a>
+					<Modal 
+						width={800}
+						maskClosable={false}
 						visible={this.state.visible}
-						  onOk={this.handleOk}
-						  onCancel={this.handleClick}
+						  onCancel={this.messageClick}
 						  footer="备注：该消息为GPS设备在车贷管家平台的到期提示信息，请注意关注并及时续费，以免影响设备的正常使用"
 					>
 					  <Tabs type="card">
@@ -213,7 +271,7 @@ class Header extends React.Component {
 					</Modal>
 				</li>
 				<li>
-					<Link to="" style={{ color: "#fff"}}>Access Key</Link>
+					<Link to="">Access Key</Link>
 				</li>
 				<li onMouseEnter={this.handleMousemove} onMouseLeave={this.handleMouseLeave}>
 					<Link><Icon type="mobile" />手机版</Link>
