@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'antd'
+import { Menu, Badge } from 'antd'
 const SubMenu = Menu.SubMenu;
 
 
@@ -43,10 +43,12 @@ class MessageCenter extends React.Component {
 						公告通知
 					</div>
 					<aside>
-						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)}>
+						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)} defaultOpenKeys={['sub1']}>
 							<SubMenu key="sub1" title="公告通知">
 								<Menu.Item key="1">全部通知</Menu.Item>
-								<Menu.Item key="2">未读通知</Menu.Item>
+								<Menu.Item key="2">
+									<Badge count={1}>未读通知</Badge>
+								</Menu.Item>
 								<Menu.Item key="3">已读通知</Menu.Item>
 							</SubMenu>
 						</Menu>

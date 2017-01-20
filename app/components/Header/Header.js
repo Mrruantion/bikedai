@@ -6,7 +6,7 @@ import MessageCenter from '../../view/messageCenter/messageCenter.js'
 import TrainingCenter from '../../view/trainingCenter/trainingCenter.js'
 
 import './index.css'
-import { Menu, Icon, Modal, Button, Tabs, Table, Badge, Checkbox } from 'antd';
+import { Menu, Icon, Modal, Button, Tabs, Table, Badge, Checkbox, Pagination } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const TabPane = Tabs.TabPane;
@@ -123,7 +123,21 @@ class TableThree extends React.Component {
 }
 
 class WarmCenter extends React.Component {
+	constructor(){
+		super()
+		this.state = {
+			collapse: true
+		};
+		this.onCollapseChange = this.onCollapseChange.bind(this);
+		
+	}
+	onCollapseChange(){
+		this.setState ({
+			collapse: !this.state.collapse
+		})
+	}
 	render(){
+		const collapse = this.state.collapse;
 		return (
 			<div className="warmCenter">
 				<div className="history-head">
@@ -134,25 +148,29 @@ class WarmCenter extends React.Component {
 				</div>
 				<div className="history">
 				   <div className="history-content fl">
-					   <div className="history-tit">
-						  
+					   <div className="history-tit" id="history-tit">
+						  <Tabs type="card">
+							  <TabPane tab="全部" key="1"></TabPane>
+							  <TabPane tab="未解除" key="2"></TabPane>
+							  <TabPane tab="已解除" key="3"></TabPane>
+						  </Tabs>
 					   </div>
 					   <div className="tab-cont">
 						  
-					   </div>                       
+					   </div>       
 					   <div className="page-bot">
-						  
+						  <Pagination simple defaultCurrent={1} total={0} />
 					   </div>
 				   </div>
 				   <div className="fl history-detail">
 					   <div className="showWrap">
-						   <ul className="detail-top">
-							   <li><b>设备名称:</b><em id="his_detail_name"></em></li> 
-							   <li><b>报警类型</b><em id="his_detail_type"></em></li>
-							   <li><b>报警时间</b><em id="his_detail_time"></em></li>
-							   <li><b>地点</b><em id="his_detail_pos"></em></li>
+						   <ul className={collapse? "detail-top showtab": "hide"}>
+							   <li><b>设备名称:</b><em></em></li> 
+							   <li><b>报警类型</b><em></em></li>
+							   <li><b>报警时间</b><em></em></li>
+							   <li><b>地点</b><em></em></li>
 						   </ul>
-						   <div className="la"></div>
+						   <div className="la" onClick={this.onCollapseChange}></div>
 					   </div>
 					   <div className="mapWrap">
 						   

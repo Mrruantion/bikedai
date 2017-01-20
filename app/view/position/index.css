@@ -64,3 +64,71 @@
     right: 0;
     background: #ddd;
 }
+
+
+
+.direct-top-tit {
+    height: 25px;
+    padding-top: 5px;
+    background: #eaedf1;
+    font-size: 12px;
+}
+
+.direct-top-tit .icon {
+    cursor: pointer;
+}
+.icon-refresh {
+    background-position: -140px -119px;
+}
+.icon {
+    display: inline-block;
+    vertical-align: -4px;
+    width: 18px;
+    height: 18px;
+    background-image: url(http://localhost:4000/images/icon.png);
+    background-repeat: no-repeat;
+}
+.ml5 {
+    margin-left: 5px;
+}
+
+.direct-top-tit .ht {
+    display: block;
+    width: 211px;
+    overflow: hidden;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon-upblack {
+    width: 16px;
+    background-position: -169px -177px;
+    margin-right: 5px;
+}
+
+.wrapper1 {
+    height: 170px;
+    position: relative;
+    overflow-x: hidden;
+    background: #123456;
+}
+.rotate0 {
+    transform: rotate(0deg);
+
+}
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+
+.direct-head {
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+}

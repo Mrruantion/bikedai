@@ -55,8 +55,8 @@ class StatisticsReport extends React.Component {
 						报表统计
 					</div>
 					<aside>
-						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)}>
-							<SubMenu key="sub1" title="报警报表">
+						<Menu mode="inline" theme="light" onClick={this.handleClick.bind(this)} defaultOpenKeys={['sub1']}>
+							<SubMenu key="sub1" title="报警报表" >
 								<Menu.Item key="1"onClick={this.handleClick}>离线超时报警</Menu.Item>
 								<Menu.Item key="2">停车超时报警</Menu.Item>
 								<Menu.Item key="3">进敏感区域报警</Menu.Item>

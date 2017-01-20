@@ -52,16 +52,11 @@ export default class PageTwo extends React.Component {
 				</div>
 				<div style={{ marginTop: 20 }} className="dataPick">
 					<Tabs  type="card">
-						<TabPane tab="全部" key="1">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>
-						<TabPane tab="公告" key="2">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>	
-						<TabPane tab="通知" key="3">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>
+						<TabPane tab="全部" key="1"></TabPane>
+						<TabPane tab="公告" key="2"></TabPane>	
+						<TabPane tab="通知" key="3"></TabPane>
 					</Tabs>
+					<Table rowSelection={rowSelection} columns={columns} />
 				</div>
 			</div>	
 		)

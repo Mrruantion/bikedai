@@ -349,58 +349,27 @@ class AssetStatus extends React.Component {
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
-									<Button type="primary"><span><Icon type="reload" /></span>刷新</Button>
+									<Button type="primary" onClick={ () => history.go(0) }><span><Icon type="reload" /></span>刷新</Button>
 									<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 								</span>
 							</div>
 						 </div>
 						 <div style={{ marginTop: 30 }}>
 							<Tabs  type="card">
-								<TabPane tab="全部状态" key="1">
-									<ListSearch />
-									<Table rowSelection={rowSelection} dataSource={dataSource} columns={columns} />
-								</TabPane>
-								<TabPane tab="离线超时报警" key="2">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="停车超时报警" key="3">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="进敏感区域报警" key="4">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="出行政区域报警" key="5">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="敏感区域停车超时报警" key="6">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="未进常用区域超时报警" key="7">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="出围栏报警" key="8">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="有线无线分离报警" key="9">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="异动报警" key="10">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
-								<TabPane tab="设备功能报警" key="11">
-									<ListSearch />
-									<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
-								</TabPane>
+								<TabPane tab="全部状态" key="1"></TabPane>
+								<TabPane tab="离线超时报警" key="2"></TabPane>
+								<TabPane tab="停车超时报警" key="3"></TabPane>
+								<TabPane tab="进敏感区域报警" key="4"></TabPane>
+								<TabPane tab="出行政区域报警" key="5"></TabPane>
+								<TabPane tab="敏感区域停车超时报警" key="6"></TabPane>
+								<TabPane tab="未进常用区域超时报警" key="7"></TabPane>
+								<TabPane tab="出围栏报警" key="8"></TabPane>
+								<TabPane tab="有线无线分离报警" key="9"></TabPane>
+								<TabPane tab="异动报警" key="10"></TabPane>
+								<TabPane tab="设备功能报警" key="11"></TabPane>
 							</Tabs>
+							<ListSearch />
+							<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
 						 </div>
 					</div>
 				</div>	

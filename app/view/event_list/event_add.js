@@ -252,7 +252,7 @@ export default class EventAdd extends React.Component {
 					<div className="content-layout pl20 pr20">
 						<div className="topbar"> 
 							<div className="topbar-cell">
-								<b className="topbar-tit"><span id="title">添加暗访记录</span></b>
+								<b className="topbar-tit"><span id="title">事件中心详情</span></b>
 							</div>
 							<div className="topbar-cell" style={{position:'absolute',left:'120px',top:'20px'}}>
 								<span >

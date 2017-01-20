@@ -17,6 +17,15 @@ const rowSelection = {
 		disabled: record.name === 'Disabled User',
 	}),
 };
+const data = [];
+for (let i = 0; i < 30; i++) {
+  data.push({
+    key: i,
+    title_content: `Edward King ${i}`,
+    submit_time: 32,
+    type: `no. ${i}`,
+  });
+}
 
 export default class PageOne extends React.Component {
 	constructor(props){
@@ -34,10 +43,18 @@ export default class PageOne extends React.Component {
 			dataIndex: 'type',
 			width: '10%',
 		}];
+		
+		this.pagination = {
+			total: data.length,
+			showSizeChanger: true,
+			showQuickJumper: true,
+		};
+		
 	}
 	
 	render(){
 		const columns = this.columns;
+		const pagination = this.pagination;
 		return(
 			<div>
 				<div className="topbar"> 
@@ -52,16 +69,11 @@ export default class PageOne extends React.Component {
 				</div>
 				<div style={{ marginTop: 20 }} className="dataPick">
 					<Tabs  type="card">
-						<TabPane tab="全部" key="1">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>
-						<TabPane tab="公告" key="2">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>	
-						<TabPane tab="通知" key="3">
-							<Table rowSelection={rowSelection} columns={columns} />
-						</TabPane>
+						<TabPane tab="全部" key="1"></TabPane>
+						<TabPane tab="公告" key="2"></TabPane>	
+						<TabPane tab="通知" key="3"></TabPane>
 					</Tabs>
+					<Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={pagination}/>
 				</div>
 			</div>	
 		)
