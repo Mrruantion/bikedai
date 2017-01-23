@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import { Menu } from 'antd'
 const SubMenu = Menu.SubMenu;
 
-import PageOne from './page/pageOne.js'
-import PageTwo from './page/pageTwo.js'
-import PageThree from './page/pageThree.js'
-
+import { Link } from 'react-router'
 import './index.css'
 
 class TrainingCenter extends React.Component {
@@ -21,14 +18,6 @@ class TrainingCenter extends React.Component {
 			collapse: !this.state.collapse
 		})
 	}
-	handleClick(e) {
-		const item = e.key-1;
-		const hh = document.getElementById("combox").children;
-		for(var i = 0; i<hh.length; i++){
-			hh[i].className="hide";
-		}
-		hh[item].className="show";
-	}
 	render(){
 		const collapse = this.state.collapse;
 		const { routes, params, children } = this.props;
@@ -40,17 +29,15 @@ class TrainingCenter extends React.Component {
 					</div>
 					<aside>
 						<Menu mode="inline" theme="light" onClick={this.handleClick}>
-							<Menu.Item key="1">常见问题</Menu.Item>
-							<Menu.Item key="2">WEB使用说明</Menu.Item>
-							<Menu.Item key="3">APP使用说明</Menu.Item>
+							<Menu.Item key="1"><Link to="/trainingCenter/yh_peixun">常见问题</Link></Menu.Item>
+							<Menu.Item key="2"><Link to="/trainingCenter/yh_peixun2">WEB使用说明</Link></Menu.Item>
+							<Menu.Item key="3"><Link to="/trainingCenter/yh_peixun3">APP使用说明</Link></Menu.Item>
 						</Menu>
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className={ collapse ? 'main-box': "main-box main-box-collapse"} id="combox">
-					<div className="show"><PageOne /></div> 
-					<div className="hide"><PageTwo /></div>
-					<div className="hide"><PageThree /></div> 
+				<div className={ collapse ? 'main-box': "main-box main-box-collapse"}>
+					{this.props.children}
 				</div>
 			</div>
 		)
