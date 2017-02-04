@@ -49,9 +49,9 @@ export default class NotifyAll extends React.Component {
 			showSizeChanger: true,
 			showQuickJumper: true,
 		};
-		
+			
 	}
-	
+   
 	render(){
 		const columns = this.columns;
 		const pagination = this.pagination;
@@ -73,7 +73,7 @@ export default class NotifyAll extends React.Component {
 						<TabPane tab="公告" key="2"></TabPane>	
 						<TabPane tab="通知" key="3"></TabPane>
 					</Tabs>
-					<Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={pagination}/>
+					<Table  rowSelection={rowSelection} columns={columns} dataSource={data} pagination={pagination}/>
 				</div>
 			</div>	
 		)

@@ -55,8 +55,11 @@ import EventAdd from './view/event_list/event_add.js'
 /*账号管理*/
 import AccountMain from './view/accountMain/accountMain.js'
 import AccountOrganization from './view/accountMain/page/account_organization.js'
+import AccountOrganizationAdd from './view/accountMain/page/account_organization_add.js'
 import AccountRole from './view/accountMain/page/account_role.js'
+import AccountRoleAdd from './view/accountMain/page/account_role_add.js'
 import AccountUser from './view/accountMain/page/account_user.js'
+import AccountUserAdd from './view/accountMain/page/account_user_add.js'
 /*公告通知*/
 import MessageCenter from './view/messageCenter/messageCenter.js'
 import NotifyAll from './view/messageCenter/page/notify_all.js'
@@ -176,8 +179,11 @@ render((
 			<Route path="/accountMain" component={AccountMain}>
 				<IndexRoute component={AccountOrganization}/>
                 <Route path="account_organization" component={AccountOrganization} />
+				<Route path="account_organization_add" component={AccountOrganizationAdd} />
                 <Route path="account_role" component={AccountRole} />
+				<Route path="account_role_add" component={AccountRoleAdd} />
                 <Route path="account_user" component={AccountUser} />
+				<Route path="account_user_add" component={AccountUserAdd} />
             </Route>
 			
 			<Route path="/work_list" component={WorkList} />

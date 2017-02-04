@@ -64,11 +64,6 @@ export default class YhPeixunOne extends React.Component {
 					<div className="topbar-cell">
 						<b className="topbar-tit"><span id="title">常见问题</span></b>
 					</div>
-					<div className="topbar-cell">
-						<span className="fr">
-							<Button>导出</Button>
-						</span>
-					</div>
 				</div>
 				<div style={{ marginTop: 20 }} className="Collapse">
 					<Collapse defaultActiveKey={['1']} >

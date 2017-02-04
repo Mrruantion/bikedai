@@ -14,10 +14,10 @@ const ListSearch = React.createClass({
 				  <Col span={5}>
 					工单编号 <Input />
 				  </Col>
-				  <Col span={12}>
+				  <Col span={12} style={{ width: 400 }}>
 					起至时间 <RangePicker />
 				  </Col>
-				  <Col span={5}>
+				  <Col span={5} >
 					关键字 <Input />
 				  </Col>
 				   <Col span={2}>

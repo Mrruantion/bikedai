@@ -16,11 +16,6 @@ export default class YhPeixunThree extends React.Component {
 					<div className="topbar-cell">
 						<b className="topbar-tit"><span id="title">手机APP使用说明</span></b>
 					</div>
-					<div className="topbar-cell">
-						<span className="fr">
-							<Button>导出</Button>
-						</span>
-					</div>
 				</div>
 				<div style={{ marginTop: 20 }} className="dataPick">
 					<div className="w mt15 mb20 intru">

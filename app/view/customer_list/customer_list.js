@@ -11,16 +11,16 @@ const ListSearch = React.createClass({
 		return (
 			<div style={{ marginBottom: 20 }}>
 				<Row gutter={16}>
-				  <Col span={6}>
+				  <Col span={5}>
 					客户姓名 <Input />
 				  </Col>
-				  <Col span={6}>
+				  <Col span={5}>
 					车牌号码 <Input />
 				  </Col>
-				  <Col span={6}>
+				  <Col span={5}>
 					所属组织 <Input />
 				  </Col>
-				  <Col span={6}>
+				  <Col span={4}>
 					贷款类型 
 					<Select defaultValue="全部" style={{ width: 88 }}>
 						<Option value="全部">全部</Option>
@@ -28,9 +28,7 @@ const ListSearch = React.createClass({
 						<Option value="按揭贷款">按揭贷款</Option>
 					</Select>
 				  </Col>
-				</Row>
-				<Row gutter={16} style={{ marginTop: 20 }}>
-				  <Col span={6}>
+				  <Col span={3}>
 					<Button type="primary">查询</Button>
 				  </Col>
 				</Row>
