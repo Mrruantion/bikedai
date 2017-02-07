@@ -369,7 +369,7 @@ class AssetStatus extends React.Component {
 								<TabPane tab="设备功能报警" key="11"></TabPane>
 							</Tabs>
 							<ListSearch />
-							<Table rowSelection={rowSelection} columns={columns} scroll={{ x: 950 }} />
+							<Table rowSelection={rowSelection} columns={columns}  />
 						 </div>
 					</div>
 				</div>	

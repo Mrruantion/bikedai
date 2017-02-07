@@ -18,7 +18,7 @@ import './main.css'
 
 import Header from './components/Header/Header.js'
 /*首页*/
-import MainRight from './view/main_right/MainRight.js'
+import MainRight from './view/main_right/mainRight.js'
 /*资产状态*/
 import AssetStatus from './view/assetStatus/assetStatus.js'
 /*位置跟踪*/

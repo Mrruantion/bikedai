@@ -22,8 +22,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
   width: 100%;
   position: absolute;
   overflow: auto;
-  padding-bottom: 24px;
-  height: 100%;
+  /*padding-bottom: 24px;*/
+  height: 587px;
   top: 50px;
 }
 

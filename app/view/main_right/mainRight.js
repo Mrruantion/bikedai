@@ -2,10 +2,64 @@ import React, { Component } from 'react'
 import { Card, Col, Row, Collapse } from 'antd';
 const Panel = Collapse.Panel;
 
-import './index.css'
+import Echart from 'echarts/lib/echarts'
 
-class MainRight extends React.Component {
+require('echarts/lib/chart/line')
+require('echarts/lib/chart/bar')
+require('echarts/lib/component/tooltip')
+require('echarts/lib/component/title')
+
+import './index.css'
+const chartOption = {
+	tooltip : {
+        trigger: 'axis'
+    },
+    toolbox: {
+        show : true,
+        showTitle: false,
+        iconStyle: {
+            normal: {
+                borderColor: '#108ee9',
+            },
+        },
+        feature : {
+            magicType : {show: true, type: ['line', 'bar']}
+        }
+    },
 	
+    xAxis : [
+        {
+            type : 'category',
+            splitLine: {show: true},
+            data : ['1/17']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'客户数据',
+            type:'line',
+            data:[1]
+        }
+    ],
+	itemStyle: {
+		normal:{
+			color: '#108ee9'
+		}
+	}
+};
+class MainRight extends React.Component {
+	constructor (){
+		super()
+	}
+	componentDidMount(){
+		var myChart2 = Echart.init(this.refs.chart2);
+		myChart2.setOption(chartOption);
+	}
 	render(){
 		return (
 			<div className="main-box">
@@ -64,6 +118,7 @@ class MainRight extends React.Component {
 							<div className="record-list" style={{height: 280}}>
 								<div className="record-tit">客户数据走势</div>
 								<div className="ind-chart">
+									<div style={{width: 582, height: 280}} ref="chart2"></div>
 								</div>
 							</div>
 							<div className="record-list mb20">

@@ -15,22 +15,26 @@ const chartOption = {
 	tooltip: {
 		trigger: 'axis'
 	},
-	legend: {
-		data: ['数量']
-	},
+	
 	xAxis: {
-		type: 'category',
-		data: ['2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月'],
-	},
+        type: 'category',
+        boundaryGap: false,
+		splitLine: {show: 'true'}, /*分割线 */
+		axisTick: {interval: '0',show: 'true'},		/*显示刻度 */
+		axisLabel: {interval: '0',show: 'true'}, 		/*显示刻度标签 */
+        data: ['2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月']
+    },
 	yAxis: {
-		type: 'value'
+		type: 'value',
+		splitLine: {show: 'true'},
 	},
-	series: [{
-		name: '数量',
-		type: 'line',
-		smooth: true,
-		data: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1]
-	}],
+	series: [
+        {
+            name: '数量',
+            type:'line',
+            data: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+        }
+    ],
 	itemStyle: {
 		normal:{
 			color: '#108ee9'

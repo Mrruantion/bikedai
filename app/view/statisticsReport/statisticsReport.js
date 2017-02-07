@@ -49,8 +49,9 @@ class StatisticsReport extends React.Component {
 		const collapse = this.state.collapse;
 		const { routes, params, children } = this.props;
 		return (
-			<div>
-				<div className={collapse ? "menu-third-collapse" : "menu-third"}>
+			<div className="testone">
+				<div className="testtwo">
+					<div className={collapse ? "menu-third-collapse" : "menu-third"}>
 					<div className="menu-third-head">
 						报表统计
 					</div>
@@ -74,6 +75,7 @@ class StatisticsReport extends React.Component {
 						</Menu>
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
+				</div>
 				</div>
 				<div className={ collapse ? 'main-box': "main-box main-box-collapse"} id="combox">
 					<div className="show"><PageOne /></div> 
