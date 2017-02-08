@@ -1,3 +1,4 @@
+/*位置跟踪*/
 .positionMap {
 	height: 100%;
 	width: 100%;
@@ -62,7 +63,6 @@
     top: 30px;
     bottom: 0;
     right: 0;
-    background: #ddd;
 }
 
 

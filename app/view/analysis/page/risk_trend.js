@@ -88,7 +88,7 @@ export default class RiskTrend extends React.Component {
 	render(){
 		return(
 			<div>
-				<div className="content-wrap">
+				<div className="content-trace">
 					 <div className="content-layout pl20 pr20">
 						 <div className="query-bar">
 							<Row>

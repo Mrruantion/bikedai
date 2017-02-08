@@ -14,6 +14,9 @@ export default class Position extends React.Component {
 		this.onCollapseChange = this.onCollapseChange.bind(this);
 		this.onUpdown = this.onUpdown.bind(this);
 	}
+	// componentDidMount(){
+	// 	WMap('map');
+	// }
 	onCollapseChange() {
 		this.setState({
 			collapse: !this.state.collapse
@@ -55,7 +58,7 @@ export default class Position extends React.Component {
 					</div>
 					<div className={ !collapse ? "row-btn" : "row-btn on"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className="positionContent"></div>
+				<div className="positionContent" id="map"></div>
 			</div>
 		)
 	}

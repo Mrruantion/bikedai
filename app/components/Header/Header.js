@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import MainRight from '../../view/main_right/MainRight.js'
-import MessageCenter from '../../view/messageCenter/messageCenter.js'
-import TrainingCenter from '../../view/trainingCenter/trainingCenter.js'
+
 
 import './index.css'
 import { Menu, Icon, Modal, Button, Tabs, Table, Badge, Checkbox, Pagination } from 'antd';
@@ -218,28 +216,21 @@ class Header extends React.Component {
 	  });
   }
  
-  
   handleMousemove(e){
-	  e.stopepropagation
-	  const qcode = document.getElementById("qcode");
-	  qcode.style.display = "block"
+	  W('#qcode').style.display = "block";
   }
   handleMouseLeave(e){
-	  e.stopepropagation
-	  const qcode = document.getElementById("qcode");
-	  qcode.style.display = "none";
+	  W('#qcode').style.display = "none";
   }
   handlelogout() {
-	  const logout = document.getElementById("logout");
-	  logout.style.backgroundColor = "#fff";
-	  logout.style.color = "#000";
-	  logout.nextSibling.style.display = "block";
+	  W('#logout').style.backgroundColor = "#fff";
+	  W('#logout').style.color = "#000";
+	  W('#logout').nextSibling.style.display = "block";
   }
   handlelogoutLeave(){
-	  const logout = document.getElementById("logout");
-	  logout.style.backgroundColor = "#108ee9";
-	  logout.style.color = "#fff";
-	  logout.nextSibling.style.display = "none";
+	  W('#logout').style.backgroundColor = "#108ee9";
+	  W('#logout').style.color = "#fff";
+	  W('#logout').nextSibling.style.display = "none";
   }
   render() {
     return (

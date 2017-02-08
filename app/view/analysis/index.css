@@ -24,8 +24,6 @@
     height: 100%;
 }
 .main-box1 {
-    min-width: 900px;
-    min-height: 500px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -33,9 +31,103 @@
     right: 0;
     z-index: 0;
     background: #fff;
-    overflow: auto;
+    overflow: hidden;
     padding: 0;
 }
+.content-trace {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+/*risk_map*/
+.mapchart .map-logo {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+.mapchart .qs-left {
+    width: 110px;
+    padding: 5px 0;
+    top: 50%;
+    border-radius: 3px;
+    left: 15px;
+}
+.mapchart .label-list {
+    font-size: 14px;
+    position: absolute;
+    background: url(http://localhost:4000/images/qs-bg.png) repeat;
+    z-index: 200;
+}
+.mapchart .qs-left li {
+    height:26px; 
+    line-height:26px;
+    color:#ddd; 
+    font-size:13px;
+    padding-left:30px;
+}
+
+.mapchart .qs-left li.blu {
+    background: url(http://localhost:4000/images/qs-blu.png) no-repeat 5px center;
+}
+.mapchart .qs-left li.red {
+    background: url(http://localhost:4000/images/qs-red.png) no-repeat 5px center;
+}
+.mapchart .qs-left li.pur {
+    background: url(http://localhost:4000/images/qs-pur.png) no-repeat 5px center;
+}
+.mapchart .qs-left li.ora {
+    background: url(http://localhost:4000/images/qs-ora.png) no-repeat 5px center;
+}
+.mapchart .qs-left li.skb {
+    background: url(http://localhost:4000/images/qs-skb.png) no-repeat 5px center;
+}
+
+.mapchart .qs-right {
+    width: 320px;
+    padding: 15px;
+    right: 10px;
+    top: 50%;
+    border-radius: 3px;
+    margin-top: -240px;
+}
+
+.mapchart .qs-right .dsf {
+    background: #333c45 url(http://localhost:4000/images/dsf_03.png) no-repeat center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #1c232b;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #999 inset;
+    cursor: pointer;
+}
+.qs-right .dsr span.on {
+    background: #232c33;
+    color: #ffffff;
+    box-shadow: 0 1px 2px #222 inset;
+}
+.qs-right .dsr .fir {
+    border: 1px solid #1c232b;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+}
+.qs-right .dsr span {
+    background: #333c45;
+    display: block;
+    width: 125px;
+    float: left;
+    height: 30px;
+    box-shadow: 0 1px 1px #999 inset;
+    color: #ddd;
+    text-align: center;
+    line-height: 30px;
+    cursor: default;
+}
+/*risk_trend*/
 .line-chart {
     overflow: hidden;
 }

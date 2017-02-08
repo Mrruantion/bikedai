@@ -31,6 +31,7 @@ const chartOption = {
         {
             type : 'category',
             splitLine: {show: true},
+			axisTick: {interval: '0',show: 'false'},	
             data : ['1/17']
         }
     ],
@@ -118,7 +119,7 @@ class MainRight extends React.Component {
 							<div className="record-list" style={{height: 280}}>
 								<div className="record-tit">客户数据走势</div>
 								<div className="ind-chart">
-									<div style={{width: 582, height: 280}} ref="chart2"></div>
+									<div style={{width: '100%', height: 280}} ref="chart2"></div>
 								</div>
 							</div>
 							<div className="record-list mb20">
