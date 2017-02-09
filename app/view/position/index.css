@@ -132,3 +132,18 @@
     text-align: center;
     background: #ffffff;
 }
+
+
+.ranging {
+    position: absolute;
+    right: 100px;
+    top: 40px;
+    background-color: #fff;
+    border: 1px solid rgb(126, 141, 176);
+    width: 44px;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 3px;
+    cursor: pointer;
+}

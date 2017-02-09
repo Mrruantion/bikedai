@@ -67,7 +67,7 @@ export default class GpsList extends React.Component {
 	render(){
 		const columns = this.columns;
 		return(
-			<div>
+			<div className="main-box">
 				<div className="topbar"> 
 					<div className="topbar-cell">
 						<b className="topbar-tit"><span id="title">我的设备</span></b>

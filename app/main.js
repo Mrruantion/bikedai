@@ -166,6 +166,7 @@ render((
                 <Route path="gps_list" component={GpsList} />
                 <Route path="simcord_list" component={SimcordList} />
             </Route>
+			<Route path="/gps_list" component={GpsList} />
 			
 			<Route path="/area" component={Area}>
 				<IndexRoute component={AreaOne}/>

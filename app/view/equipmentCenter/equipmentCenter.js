@@ -30,7 +30,7 @@ class EquipmentCenter extends React.Component {
 					</div>
 					<aside>
 						<Menu mode="inline" theme="light">
-							<Menu.Item key="1"><Link to="/equipmentCenter/gps_list">暗访记录</Link></Menu.Item>
+							<Menu.Item key="1"><Link to="/equipmentCenter/gps_list">我的设备</Link></Menu.Item>
 							<Menu.Item key="2"><Link to="/equipmentCenter/simcord_list">我的流量卡</Link></Menu.Item>
 						</Menu>
 					</aside>

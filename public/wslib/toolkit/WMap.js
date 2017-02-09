@@ -5,6 +5,8 @@
  */
 W.include("http://api.map.baidu.com/api?v=2.0&ak=647127add68dd0a3ed1051fd68e78900&callback=WMap.mapInit");
 
+// W.include("http://api.map.baidu.com/library/DistanceTool/1.2/src/DistanceTool_min.js)
+
 //类构造
 function WMap(id,lat,lon,zoom){
 	lat=lat||116.417854;

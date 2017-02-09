@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Input, Radio } from 'antd'
+import {Link} from 'react-router'
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
@@ -61,7 +62,7 @@ class DataView extends React.Component {
 						<div className="data_view">
 							<div className="sj-wrap fir clearfix">
 								<div className="fl">
-									<h1>客户一览<a className="more fr" href="#">详情 》</a></h1>
+									<h1>客户一览<Link className="more fr" to="/customer_list">详情 》</Link></h1>
 									<div className="w clearfix">
 									   <div className="fl">
 										   <Input placeholder="测试专用111" style={{ width: 130}}/>	
@@ -87,7 +88,7 @@ class DataView extends React.Component {
 									</div>
 								</div>
 								<div className="fl">
-									<h1>设备一览<a className="more fr" href="#" >详情 》</a></h1>
+									<h1>设备一览<Link className="more fr" to="/gps_list" >详情 》</Link></h1>
 									<div className="w clearfix">
 										<div className="clientChoose2 choose-kh w200 fl ">
 											<Input placeholder="测试专用111" style={{ width: 200}}/>		

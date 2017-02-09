@@ -39,7 +39,7 @@ class Area extends React.Component {
 					</aside>
 					<div className={collapse ? "menu-third-btn  menu-third-btn-collapse" : "menu-third-btn"} onClick={this.onCollapseChange}></div>  
 				</div>
-				<div className={ collapse ? 'main-box': "main-box main-box-collapse"}>
+				<div className={ collapse ? 'main-box1': "main-box1 main-box-collapse"}>
 					{this.props.children}
 				</div>
 			</div>

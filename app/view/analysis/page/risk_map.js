@@ -144,9 +144,13 @@ export default class RiskMap extends React.Component {
 		var mapChart = Echart.init(this.refs.mapchart);
 		mapChart.setOption(this.state.option);
 	}
-    componentDidUpdate  (){
-        var mapChart = Echart.init(this.refs.mapchart);
-        mapChart.setOption(this.state.option);
+    componentDidUpdate  (prevProps, prevState){
+        if(this.state.option){
+            var mapChart = Echart.init(this.refs.mapchart);
+            mapChart.setOption(this.state.option);
+        }
+        
+       
     }
     btnChange() {
         this.setState({
