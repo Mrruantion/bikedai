@@ -59,7 +59,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('username', {
+								  {getFieldDecorator('name', {
 									rules: [{ required: true, message: '请输入姓名' }],
 								  })(
 									<Input placeholder="输入客户姓名(至少两个字符)"/>
@@ -72,14 +72,14 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('lifeaddress', {})(
+								  {getFieldDecorator('peraddress', {})(
 									<Cascader size="large" options={options} style={{ width: '96%' }} onChange={(value) => console.log(value)}/>
 								  )}
 								</FormItem>
 								<FormItem
 								  wrapperCol={{ span: 14, offset: 6 }}
 								>
-								  {getFieldDecorator('lifeaddress1', {})(<div>
+								  {getFieldDecorator('peraddress1', {})(<div>
 									<Input style={{ width: '79%', marginTop: 10 }} /><Button><Icon type="environment" /></Button>
 									</div>
 								 )}
@@ -93,7 +93,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('phone', {})(
+								  {getFieldDecorator('tel', {})(
 									<Input placeholder="输入手机号码(11位)"/>
 								  )}
 								</FormItem>
@@ -106,10 +106,10 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('carnumber', {})(
+								  {getFieldDecorator('idType', { initialValue: "1" })(
 									 <Select>
-										<Option value="身份证">身份证</Option>
-										<Option value="护照">护照</Option>
+										<Option value="1">身份证</Option>
+										<Option value="2">护照</Option>
 									  </Select>
 								  )}
 								</FormItem>
@@ -120,14 +120,14 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('workarea', {})(
+								  {getFieldDecorator('jobaddress', {})(
 									<Cascader size="large" options={options} style={{ width: '98%' }} />
 								  )}
 								</FormItem>
 								<FormItem
 								  wrapperCol={{ span: 14, offset: 6 }}
 								>
-								  {getFieldDecorator('workarea1', {})(<div>
+								  {getFieldDecorator('jobaddress1', {})(<div>
 									<Input style={{ width: '79%', marginTop: 10 }} /><Button><Icon type="environment" /></Button>
 									</div>
 								  )}
@@ -141,7 +141,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('IDcardnumber', {})(
+								  {getFieldDecorator('idNo', {})(
 									<Input placeholder="输入证件号码"/>
 								  )}
 								</FormItem>
@@ -154,7 +154,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('IDcardnumber', {})(
+								  {getFieldDecorator('age', {})(
 									<Input placeholder="输入年龄"/>
 								  )}
 								</FormItem>
@@ -165,7 +165,7 @@ const CustomerForm = Form.create()(React.createClass({
 									labelCol={{ span: 6 }}
 									wrapperCol={{ span: 16 }}
 								>
-								  {getFieldDecorator('gender7', {})(
+								  {getFieldDecorator('idphotopath', {})(
 									<UploadPicture />
 									)}
 								</FormItem>
@@ -178,10 +178,10 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender', {})(
+								  {getFieldDecorator('sex', { initialValue: "0" })(
 									<Select>
-										<Option value="男">男</Option>
-										<Option value="女">女</Option>
+										<Option value="0">男</Option>
+										<Option value="1">女</Option>
 									  </Select> 
 								  )}
 								</FormItem>
@@ -194,8 +194,8 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('orgenation', {
-									rules: [{ required: true, message: '请输入组织' }],
+								  {getFieldDecorator('client', {
+									rules: [{ required: true, message: '请输入组织' },], initialValue: "测试专用111" 
 								  })(
 									<Input />
 								  )}
@@ -215,7 +215,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('note', {
+								  {getFieldDecorator('vehicleno', {
 									rules: [{ required: true, message: '请输入车牌号码' }],
 								  })(
 									<Input placeholder="输入车牌号码"/>
@@ -228,7 +228,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender11', {})(
+								  {getFieldDecorator('dlicenseno', {})(
 									<Input placeholder="输入行驶证号"/>
 								  )}
 								</FormItem>
@@ -241,7 +241,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('note', {
+								  {getFieldDecorator('vehicletype', {
 									rules: [{ required: true, message: '请输入车型' }],
 								  })(
 									<Input placeholder="输入车型(至少两个字符)"/>
@@ -254,7 +254,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender11', {})(
+								  {getFieldDecorator('vehiclevin', {})(
 									<Input placeholder="填写车架后六位"/>
 								  )}
 								</FormItem>
@@ -267,7 +267,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('IDcardnumber', {})(
+								  {getFieldDecorator('mileage', {})(
 								  <Input placeholder="输入行驶里程(最多保留2位小数)" suffix={'公里'} />
 								  )}
 								</FormItem>
@@ -278,7 +278,7 @@ const CustomerForm = Form.create()(React.createClass({
 									labelCol={{ span: 6 }}
 									wrapperCol={{ span: 16 }}
 								>
-								  {getFieldDecorator('gender7', {})(
+								  {getFieldDecorator('img1', {})(
 									<UploadPicture />
 									)}
 								</FormItem>
@@ -291,7 +291,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender1', {})(
+								  {getFieldDecorator('loc_city', {})(
 									<Cascader size="large" options={options} />
 								  )}
 								</FormItem>
@@ -310,7 +310,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('note', { initialValue: "抵押贷款" })
+								  {getFieldDecorator('loantype', { initialValue: "抵押贷款" })
 								  (
 									<Select>
 										<Option value="抵押贷款">抵押贷款</Option>
@@ -327,7 +327,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender11', {})(
+								  {getFieldDecorator('assessamount', {})(
 									<Input placeholder="输入评估金额(最多保留两位数)" suffix={"万元"} />
 								  )}
 								</FormItem>
@@ -340,7 +340,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('note', {})(
+								  {getFieldDecorator('loanamount', {})(
 									<Input placeholder="输入评估金额(最多保留两位数)" suffix={"万元"} />
 								  )}
 								</FormItem>
@@ -351,7 +351,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('gender11', {})(
+								  {getFieldDecorator('loandate', {})(
 									<DatePicker/>
 								  )}
 								</FormItem>
@@ -364,7 +364,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('note', {})(
+								  {getFieldDecorator('repaytimes', {})(
 									<Input placeholder="输入还款期数(最多36期)" suffix={"期"} />
 								  )}
 								</FormItem>
@@ -375,7 +375,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('date', {})(
+								  {getFieldDecorator('repaydate', {})(
 									 <RangePicker />
 								  )}
 								</FormItem>
@@ -386,7 +386,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 6 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('date', {})(
+								  {getFieldDecorator('purpose', {})(
 									 <Input placeholder="贷款用途(不大于100个字符)" />
 								  )}
 								</FormItem>
@@ -399,7 +399,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 7 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('ywzy', {})(
+								  {getFieldDecorator('busmanager', {})(
 									<Input placeholder="输入业务专员(至少两个字符)" />
 								  )}
 								</FormItem>
@@ -410,7 +410,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 7 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('phone', {})(
+								  {getFieldDecorator('bphone', {})(
 									 <Input placeholder="输入手机号码(11位)" />
 								  )}
 								</FormItem>
@@ -420,7 +420,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 8 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('wms1', {})(
+								  {getFieldDecorator('i1', {})(
 									 <Checkbox defaultChecked={false}>报警短信</Checkbox>
 								  )}
 								</FormItem>
@@ -433,7 +433,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 7 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('ywzy', {})(
+								  {getFieldDecorator('analyst', {})(
 									<Input placeholder="输入风控专员(至少两个字符)" />
 								  )}
 								</FormItem>
@@ -444,7 +444,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 7 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('phone', {})(
+								  {getFieldDecorator('rphone', {})(
 									 <Input placeholder="输入手机号码(11位)" />
 								  )}
 								</FormItem>
@@ -454,7 +454,7 @@ const CustomerForm = Form.create()(React.createClass({
 								  labelCol={{ span: 8 }}
 								  wrapperCol={{ span: 14 }}
 								>
-								  {getFieldDecorator('wms', {})(
+								  {getFieldDecorator('i2', {})(
 									 <Checkbox defaultChecked={true}>报警短信</Checkbox>
 								  )}
 								</FormItem>

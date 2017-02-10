@@ -32,7 +32,9 @@ import StatisticReport from './view/statisticsReport/statisticsReport.js'
 /*暗访追车*/
 import RiskMain from './view/riskMain/riskMain.js'
 import HuntList from './view/riskMain/page/hunt_list.js'
+import HuntAdd from './view/riskMain/page/hunt_add.js'
 import InvestigationList from './view/riskMain/page/investigation_list.js'
+import InvestigationAdd from './view/riskMain/page/investigation_add.js'
 /*数据概览*/
 import DataView from './view/data_view/data_view.js'
 /*客户管理*/
@@ -154,7 +156,9 @@ render((
 			<Route path="riskMain" component={RiskMain}>
                 <IndexRoute component={HuntList}/>
                 <Route path="hunt_list" component={HuntList} />
+				<Route path="hunt_add" component={HuntAdd} />
                 <Route path="investigation_list" component={InvestigationList} />
+				<Route path="investigation_add" component={InvestigationAdd} />
             </Route>
 			
 			<Route path="/dataView" component={DataView} />

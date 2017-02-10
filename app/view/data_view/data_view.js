@@ -12,48 +12,108 @@ require('echarts/lib/component/title')
 
 import './index.css'
 
-const chartOption = {
-	tooltip: {
-		trigger: 'axis'
-	},
-	
-	xAxis: {
-        type: 'category',
-        boundaryGap: false,
-		splitLine: {show: 'true'}, /*分割线 */
-		axisTick: {interval: '0',show: 'true'},		/*显示刻度 */
-		axisLabel: {interval: '0',show: 'true'}, 		/*显示刻度标签 */
-        data: ['2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', '1月']
+const chartOption1 = {
+	color: ['#108ee9',],
+    tooltip : {
+        trigger: 'axis'
     },
-	yAxis: {
-		type: 'value',
-		splitLine: {show: 'true'},
-	},
-	series: [
+    calculable : true,
+    xAxis : [
         {
-            name: '数量',
-            type:'line',
-            data: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+            type : 'category',
+            boundaryGap : false,
+            data : ['1月','2月','3月','4月','5月','6月'],
+			axisTick:{
+				show:true,
+				interval:0,
+				inside:false,
+				length:4,
+				
+			},
+            axisLabel:{
+                interval:0,
+            },
         }
     ],
-	itemStyle: {
-		normal:{
-			color: '#108ee9'
-		}
-	}
-
-};
-
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'数量',
+            type:'line',
+            data:[0, 0, 0, 0, 0, 0]
+        }
+    ],
+	
+}; 
+const chartOption2 = {
+	color: ['#108ee9',],
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+			axisTick:{
+				show:true,
+				interval:0,
+				inside:false,
+				length:4,
+				
+			},
+            axisLabel:{
+                interval:0,
+            },
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'数量',
+            type:'line',
+            data:[0, 0, 0, 1, 0, 0,0, 0, 0, 0, 0, 0]
+        }
+    ],
+}
 
 class DataView extends React.Component {
 	constructor(){
 		super()
+		this.selectdate = this.selectdate.bind(this);
 	}
 	componentDidMount(){
-		var myChart1 = Echart.init(this.refs.chart1);
-		myChart1.setOption(chartOption);
+		const myChart1 = Echart.init(this.refs.chart1);
+		myChart1.setOption(chartOption1);
+		const myChart2 = Echart.init(this.refs.chart2);
+		myChart2.setOption(chartOption2);
+		this.myChart2 = myChart2;
+		this.myChart1 = myChart1;
+		window.onresize=function(){myChart1.resize(),myChart2.resize()};	
 	}
-	
+	selectdate(e){
+		const value = e.target.value;
+		if(value == 1){
+			W("#chart-six").style.display = 'block';
+			W("#chart-twelve").style.display = 'none';
+			this.myChart1.resize()
+			// console.log(W("#chart-six").style.display)
+		}else if(value == 2){
+			W("#chart-six").style.display = 'none';
+			W("#chart-twelve").style.display = 'block';
+			this.myChart2.resize()
+			// console.log(W("#chart-twelve").style.display)
+		}
+	}
 	render(){
 		return (
 			<div className="main-box">
@@ -68,9 +128,9 @@ class DataView extends React.Component {
 										   <Input placeholder="测试专用111" style={{ width: 130}}/>	
 										</div>
 										<div className="fl ml5">
-											<RadioGroup defaultValue="a">
-											  <RadioButton value="a">最近六月</RadioButton>
-											  <RadioButton value="b">最近一年</RadioButton>
+											<RadioGroup defaultValue="1" onChange={this.selectdate}>
+											  <RadioButton value="1">最近六月</RadioButton>
+											  <RadioButton value="2">最近一年</RadioButton>
 											</RadioGroup>
 										</div>
 										<Button className="fr">查询</Button>
@@ -83,7 +143,8 @@ class DataView extends React.Component {
 											</div>
 										</div>
 										<div className="tuxin fr">
-											 <div className="mycharts"  ref="chart1"></div>
+											 <div className="mycharts"  ref="chart1" id="chart-six"></div>
+											 <div className="mycharts"  ref="chart2" id="chart-twelve" style={{display:'none'}}></div>
 										</div>
 									</div>
 								</div>

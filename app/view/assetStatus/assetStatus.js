@@ -167,7 +167,7 @@ class AssetStatus extends React.Component {
 		}, {
 			title: '在线',
 			dataIndex: 'inline',
-			width: '4%',
+			width: '5%',
 		},{
 			title: '设备状态',
 			dataIndex: 'devicestatus',
@@ -369,7 +369,7 @@ class AssetStatus extends React.Component {
 								<TabPane tab="设备功能报警" key="11"></TabPane>
 							</Tabs>
 							<ListSearch />
-							<Table rowSelection={rowSelection} columns={columns}  />
+							<Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
 						 </div>
 					</div>
 				</div>	
