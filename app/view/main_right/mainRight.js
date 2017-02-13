@@ -30,9 +30,10 @@ const chartOption = {
     xAxis : [
         {
             type : 'category',
+			boundaryGap : false,
             splitLine: {show: true},
 			axisTick: {interval: '0',show: 'false'},	
-            data : ['1/17']
+            data : ['1/17','2/10']
         }
     ],
     yAxis : [
@@ -44,7 +45,7 @@ const chartOption = {
         {
             name:'客户数据',
             type:'line',
-            data:[1]
+            data:[1,2]
         }
     ],
 	itemStyle: {
@@ -60,6 +61,7 @@ class MainRight extends React.Component {
 	componentDidMount(){
 		var myChart2 = Echart.init(this.refs.chart2);
 		myChart2.setOption(chartOption);
+		window.onresize=myChart2.resize;
 	}
 	render(){
 		return (

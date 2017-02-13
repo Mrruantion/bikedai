@@ -147,19 +147,17 @@ const rowSelection = {
 	}),
 };
 
-
-
 class AssetStatus extends React.Component {
 	constructor(props) {
 		super(props);
 		this.columns = [{
-			title: '设备名称客户姓名车型',
+			title: (<div><ul><li>设备名称</li><li>客户姓名</li><li>车型</li></ul></div>),
 			dataIndex: 'devicename',
-			width: '9%',
+			width: '8%',
 		}, {
-			title: '类型/型号IMEI/ID物联网卡号',
+			title: (<div><ul><li>类型/型号</li><li>IMEI/ID</li><li>物联网卡号</li></ul></div>),
 			dataIndex: 'type',
-			width: '10%',
+			width: '12%',
 		}, {
 			title: '所属组织',
 			dataIndex: 'organization',
@@ -167,11 +165,11 @@ class AssetStatus extends React.Component {
 		}, {
 			title: '在线',
 			dataIndex: 'inline',
-			width: '5%',
+			width: '4%',
 		},{
 			title: '设备状态',
 			dataIndex: 'devicestatus',
-			width: '14%',
+			width: '15%',
 		},{
 			title: '定位类型',
 			dataIndex: 'positiontype',
@@ -181,9 +179,9 @@ class AssetStatus extends React.Component {
 			dataIndex: 'currentposition',
 			width: '12%',
 		},{
-			title: '最后定位时间数据接收时间',
+			title: (<div><ul><li>最后定位时间</li><li>数据接收时间</li></ul></div>),
 			dataIndex: 'lasttime',
-			width: '12%',
+			width: '13%',
 		},{
 			title: '跟踪数据',
 			dataIndex: 'tracedata',
@@ -192,38 +190,28 @@ class AssetStatus extends React.Component {
 			title: '回款状态',
 			dataIndex: 'receivestatus',
 			width: '7%',
-			render: (text, record, index) => this.renderColumns(this.state.data, index, 'receivestatus', text),
 		}, {
 			width: '7%',
 			title: '操作',
 			dataIndex: 'operation',
-			render: (text, record, index) => {
-				const { editable } = this.state.data[index].receivestatus;
-				return (<div className="editable-row-operation">
-					{
-						editable ?
-						<span>
-							<a onClick={() => this.editDone(index, 'save')}>保存</a>
-							<Popconfirm title="确定取消?" onConfirm={() => this.editDone(index, 'cancel')}>
-								<a>取消</a>
-							</Popconfirm>
-						</span>
-						:
-						<span>
-							<a onClick={() => this.edit(index)}>删除</a>
-						</span>
-					}
-					</div>);
-			},
+			render: (text, record) => (
+					<span>
+						<a href="#">修改</a>
+						<br />
+						<a href="#">轨迹</a>
+						<br />
+						<a href="#">位置</a>
+					</span>
+			),
 		}];
 		this.state = {
 			data: [{
 				key: '0',
 				devicename: {
-					value: '闽A00000-2测试客户1234'
+					value: (<div><ul><li>闽A00000-2</li><li>测试客户</li><li>1234</li></ul></div>)
 				},
 				type: {
-					value: '有线/WY20008681201441598751064846805191'
+					value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
 				},
 				organization: {
 					value: '测试专用111'
@@ -235,13 +223,13 @@ class AssetStatus extends React.Component {
 					value: 'GPS定位 上传时间间隔:10'
 				},
 				positiontype: {
-					value: 'GPS',
+					value: (<div style={{textAlign: 'center'}}>GPS</div>)
 				},
 				currentposition: {
 					value: '江苏省盐城市大丰市大丰海堤',
 				},
 				lasttime: {
-					value: '2017-01-09 07:20:082017-01-10 10:39:31'
+					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
 				},
 				tracedata: {
 					value: '高危'
@@ -253,28 +241,28 @@ class AssetStatus extends React.Component {
 			},{
 				key: '1',
 				devicename: {
-					value: '闽A00000-2测试客户1234'
+					value: (<div><ul><li>闽A00000-2</li><li>测试客户</li><li>1234</li></ul></div>)
 				},
 				type: {
-					value: '有线/WY20008681201441598751064846805191'
+					value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
 				},
 				organization: {
 					value: '测试专用111'
 				},
 				inline: {
-					value: '1'
+					value: '0'
 				},
 				devicestatus: {
 					value: 'GPS定位 上传时间间隔:10'
 				},
 				positiontype: {
-					value: 'GPS',
+					value: (<div style={{textAlign: 'center'}}>GPS</div>)
 				},
 				currentposition: {
 					value: '江苏省盐城市大丰市大丰海堤',
 				},
 				lasttime: {
-					value: '2017-01-09 07:20:082017-01-10 10:39:31'
+					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
 				},
 				tracedata: {
 					value: '高危'
@@ -285,52 +273,83 @@ class AssetStatus extends React.Component {
 				}
 			}]
 		};
-		
+		this.callback = this.callback.bind(this);
 	}
-	renderColumns(data, index, key, text) {
-		const { editable, status } = data[index][key];
-		if (typeof editable === 'undefined') {
-			return text;
-		}
-		return (<EditableCell
-			editable={editable}
-			value={text}
-			onChange={value => this.handleChange(key, index, value)}
-			status={status}
-		/>);
-	}
-	handleChange(key, index, value) {
-		const { data } = this.state;
-		data[index][key].value = value;
-		this.setState({ data });
-	}
-	edit(index) {
-		const { data } = this.state;
-		Object.keys(data[index]).forEach((item) => {
-			if(data[index][item] && typeof data[index][item].editable !== 'undefined') {
-				data[index][item].editable = true;
-			}
-		});
-		this.setState({ data });
-	}
-	editDone(index, type) {
-		const { data } = this.state;
-		Object.keys(data[index]).forEach((item) => {
-			if(data[index][item] && typeof data[index][item]. editable !== 'undefined') {
-				data[index][item].editable = false;
-				data[index][item].status = type;
-			}
-		});
-		this.setState({ data }, () => {
-			Object.keys(data[index]).forEach((item) => {
-				if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-					delete data[index][item].status;
+	componentDidMount(){
+		const queryObj = {
+
+		};
+		W.ajax('http://localhost:4000/query.json',{
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			headers:{'Content-Type':'application/json'},	              
+			success: (data) => {
+				//服务器返回响应，根据响应结果，分析是否登录成功；
+				let obj
+				for(var i = 0; i<data.dataList.length; i++){
+					obj = {
+						key: i,
+						devicename: {
+							value: (<div><ul><li>data.dataList[i].gpsName</li><li>data.dataList[i].customerName</li><li>data.dataList[i].vehicleType</li></ul></div>)
+						},
+						type: {
+							value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
+						},
+						organization: {
+							value: '测试专用111'
+						},
+						inline: {
+							value: '1'
+						},
+						devicestatus: {
+							value: 'GPS定位 上传时间间隔:10'
+						},
+						positiontype: {
+							value: (<div style={{textAlign: 'center'}}>GPS</div>)
+						},
+						currentposition: {
+							value: '江苏省盐城市大丰市大丰海堤',
+						},
+						lasttime: {
+							value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
+						},
+						tracedata: {
+							value: '高危'
+						},
+						receivestatus: {
+							editable: false,
+							value: '正常'
+						}
+					}
+					console.log(obj)
 				}
-			});
+				// const obj = data.dataList.map((item) => {
+				// 	return data.dataList[0]
+				// })	
+				// console.log(obj)
+				
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
 		});
+		// this.fetch();
 	}
+	callback(key) {
+		console.log(key);
+	}
+	
 	render(){
 		const { data } = this.state;
+		for(var i = 0;i<data.length;i++){
+			if(data[i].inline.value == 0){
+				data[i].inline.value = (<span className='icon icon-greencir'></span>);
+			}else{
+				data[i].inline.value = (<span className='icon icon-graycir'></span>);
+			}
+		}
 		const dataSource = data.map((item) => {
 			const obj = {};
 			Object.keys(item).forEach((key) => {
@@ -349,13 +368,13 @@ class AssetStatus extends React.Component {
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
-									<Button type="primary" onClick={ () => history.go(0) }><span><Icon type="reload" /></span>刷新</Button>
+									<Button type="primary" onClick={ () => window.location.reload()  }><span><Icon type="reload" /></span>刷新</Button>
 									<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 								</span>
 							</div>
 						 </div>
 						 <div style={{ marginTop: 30 }}>
-							<Tabs  type="card">
+							<Tabs  type="card" onChange={this.callback}>
 								<TabPane tab="全部状态" key="1"></TabPane>
 								<TabPane tab="离线超时报警" key="2"></TabPane>
 								<TabPane tab="停车超时报警" key="3"></TabPane>

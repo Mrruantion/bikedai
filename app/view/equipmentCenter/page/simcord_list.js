@@ -20,7 +20,7 @@ const rowSelection = {
 		disabled: record.name === 'Disabled User',
 	}),
 };
-
+const data=[];
 export default class SimcordList extends React.Component {
 	constructor(props){
 		super(props)
@@ -53,7 +53,7 @@ export default class SimcordList extends React.Component {
 			dataIndex: 'add_date',
 			width: '12%',
 		},{
-			title: '激活日期到期日期',
+			title: (<div><ul><li>激活日期</li><li>到期日期</li></ul></div>),
 			dataIndex: 'activation_date',
 			width: '12%',
 		},{
@@ -61,10 +61,16 @@ export default class SimcordList extends React.Component {
 			dataIndex: 'operation',
 			width: '10%',
 		}];
+		this.pagination = {
+			total: data.length,
+			showSizeChanger: true,
+			showQuickJumper: true,
+		};
 	}
 	
 	render(){
 		const columns = this.columns;
+		const pagination = this.pagination;
 		return(
 			<div>
 				<div className="topbar"> 
@@ -122,7 +128,7 @@ export default class SimcordList extends React.Component {
 						</Col>
 					</Row>
 					<div style={{ marginTop: 20 }}>
-						<Table rowSelection={rowSelection} columns={columns} />
+						<Table rowSelection={rowSelection} columns={columns} pagination={pagination}/>
 					</div>
 				</div>
 			</div>	

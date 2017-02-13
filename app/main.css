@@ -316,4 +316,52 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .pl20 {
     padding-left: 20px;
 }
-                        
+/*小图标*/
+.icon-search{background-position: -65px -178px;}
+.icon-mobile{background-position: -90px -177px;}
+.icon-tips{background-position: -113px -177px;}
+.icon-down{width:16px;background-position: -189px -177px;}
+.icon-upblack{width:16px;background-position: -169px -177px;}
+.icon-up{width:16px;background-position: -206px -178px;}
+.icon-menu{background-position: -223px -177px;}
+.icon-state{background-position: -9px -178px;}
+.icon-location{background-position: -9px -204px;}
+.icon-trend{background-position: -9px -230px;}
+.icon-tongji{background-position: -9px -256px;}
+.icon-zhuiche{background-position: -9px -283px;}
+.icon-fengkong{background-position: -9px -311px;}
+.icon-shuju{background-position: -9px -339px;}
+.icon-customer{background-position: -9px -370px;}
+.icon-device{background-position: -9px -399px;}
+.icon-huodai{background-position: -9px -429px;}
+.icon-team{background-position: -9px -458px;}
+.icon-area{background-position: -9px -485px;}
+.icon-event{background-position: -9px -514px;}
+.icon-refresh{background-position: -140px -119px;}
+.icon-export{background-position: -165px -119px;}
+.icon-import{background-position: -371px -119px;}
+.icon-add{background-position: -190px -119px;}
+.icon-sub{background-position: -217px -119px;}
+.icon-graycir{background-position: -302px -48px;}
+.icon-greencir{background-position: -364px -48px;}
+.icon-bluecir{background-position: -42px -48px;}
+.icon-redcir{background-position: -172px -48px;}
+.icon-orangecir{background-position: -108px -48px;}
+.icon-skybluecir{background-position: -364px -20px;}
+.icon-purplecir{background-position: -237px -48px;}
+.icon-down-black{background-position: -243px -177px;}
+.icon-back{background-position: -139px -177px;}
+.icon-revise{background-position: -245px -119px;}
+.icon-map{background-position: -270px -119px;}
+.icon-account{background-position: -66px -204px;}
+.icon-money{background-position: -66px -230px;}
+.icon-message{background-position: -67px -369px;}
+.icon-manage{background-position: -67px -282px;}
+.icon-train{background-position: -67px -311px;}
+.icon-log{background-position: -67px -339px;}
+.icon-set{background-position:-323px -81px;}
+.icon-record{background-position:-382px -81px;}
+.icon-xiala{background-position: -260px -177px;}
+.icon-worn{background-position: -384px -48px;}
+.icon-batchAdd{background-position: -298px -119px;}
+.icon-batchMove{background-position: -321px -119px;}                        
