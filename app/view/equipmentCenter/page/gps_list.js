@@ -63,82 +63,97 @@ export default class GpsList extends React.Component {
 			render: () => (<a href=''>修改</a>)
 		}];
 		this.state = {
-			data: [{
-				key: '0',
-				type: {
-					value: (<div><ul><li>039163701070</li><li>1064853458160</li><li>WY900S/无线</li></ul></div>)
-				},
-				device_status: {
-					value: (<div><ul><li>使用中</li><li><a>正常</a></li><li>3</li></ul></div>)
-				},
-				organization: {
-					value: (<div><ul><li>测试专用111</li><li>包年收费</li></ul></div>)
-				},
-				add_date: {
-					value: '2016-10-19'
-				},
-				activation_date: {
-					value: (<div><ul><li>2016-10-19</li><li>2017-10-19</li></ul></div>)
-				},
-				position_time: {
-					value: (<div><ul><li>2017-02-12 18:02:01</li><li>2017-02-12 18:02:01</li></ul></div>),
-				},
-				lasttime: {
-					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
-				},
-				current_status: {
-					value: '离线'
-				},
-				current_position: {
-					value: '江苏省盐城市大丰市大丰海堤'
-				}
-			},{
-				key: '1',
-				type: {
-					value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
-				},
-				device_status: {
-					value: (<div><ul><li>使用中</li><li>正常</li><li>3</li></ul></div>)
-				},
-				organization: {
-					value: (<div><ul><li>测试专用111</li><li>包年收费</li></ul></div>)
-				},
-				add_date: {
-					value: '2016-10-19'
-				},
-				activation_date: {
-					value: (<div><ul><li>2016-10-19</li><li>2017-10-19</li></ul></div>)
-				},
-				position_time: {
-					value: (<div><ul><li>2017-02-12 18:02:01</li><li>2017-02-12 18:02:01</li></ul></div>),
-				},
-				lasttime: {
-					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
-				},
-				current_status: {
-					value: '离线'
-				},
-				current_position: {
-					value: '江苏省盐城市大丰市大丰海堤'
-				}
-			}]	
+			data: []	
 		};
 		this.pagination = {
 			total: this.state.data.length,
 			showSizeChanger: true,
 			showQuickJumper: true,
 		};
+		this.fetch = this.fetch.bind(this);
+		this.timeToDate = this.timeToDate.bind(this)
 	}
-	
+	componentDidMount(){
+		this.fetch()
+	}
+	//将秒转换为YYYY-MM-DD格式的日期
+	timeToDate(timeTemp){
+		var time = 0;
+		if(typeof(timeTemp) != "number" && timeTemp != null && timeTemp != "null" && timeTemp != ""){
+			time = parseInt(timeTemp);
+		}else if(typeof(timeTemp) == "number"){
+			time = timeTemp;
+		}else{
+			time = '';
+		}
+		if(time != null && time != ''){
+			
+			var timeBegin = new Date(time);
+			var validDateBegin = timeBegin.getFullYear() + "-" + this.GetFullDate(timeBegin.getMonth()+1) + "-" + this.GetFullDate(timeBegin.getDate());
+			return validDateBegin;
+		}else{
+			return time;
+		}
+	}
+	//返回日月 （修正为两位数） 
+	GetFullDate(date){
+		if(date <= 9){
+			return "0" + date.toString();
+		}else{
+			return date;
+		}
+	}
+	fetch(){
+		let _this = this;
+		W.ajax('http://localhost:4000/list.json',{
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			headers:{'Content-Type':'application/json'},	              
+			success: ((data) => {
+				var obj=[];
+				var payWayArr=new Array("","包年收费","","");
+				var modelNameArr = ["", "GM06", "GM09", "WY200", "WY220", "GT06S", "WY800", "WY900", "WY710", "WYA5C-3", "WYMini", "GV20", "WYT1S", "WY900S", "WY600", "GT16", "WY900C", "WY-T2A", "WYminiS"]
+				var typeArr = ["", "有线", "无线", "OBD"]
+				var statusArr=["","行驶","停车","报警","离线","参考定位","基站定位","离线","WIFI定位"];
+				var eStatusArr = ["正常", "维修中", "已报废"]
+				var isBindStr;
+				for(var i = 0; i<data.dataList.length; i++){
+					if (data.dataList[i].isBind == 1){
+						isBindStr = (<div><span className="icon icon-greencir"></span><span>使用中</span></div>);
+					}	
+					else  if(data.dataList[i].isBind == 0){
+						isBindStr = (<div><span className="icon icon-greencir"></span><span>库存中</span></div>);
+					}
+					else{
+						isBindStr = (<div><span className="icon icon-greencir"></span><span>未拆除</span></div>);
+					}
+					obj[i] = {
+						key: i,
+						type:  (<div><ul><li>{data.dataList[i].gprscode}</li><li>{data.dataList[i].simcode}</li><li>{modelNameArr[data.dataList[i].model]+"/"+typeArr[data.dataList[i].type]}</li></ul></div>),
+						device_status: (<div><ul><li>{isBindStr}</li><li><a>{eStatusArr[data.dataList[i].eStatus]}</a></li><li>{data.dataList[i].bindTimes }</li></ul></div>),
+						organization: (<span>{data.dataList[i].clientName}<br/>{payWayArr[data.dataList[i].payWay]}</span>),
+						add_date: this.timeToDate(data.dataList[i].addtime),
+						activation_date: (<div><ul><li>{this.timeToDate(data.dataList[i].activatetime)}</li><li>{this.timeToDate(data.dataList[i].endtime)}</li></ul></div>),
+						position_time: (<div><ul><li>{W.dateToString(new Date(parseInt(data.dataList[i].lastgpstime)))}</li><li>{W.dateToString(new Date(parseInt(data.dataList[i].gpsUpdateTime)))}</li></ul></div>),
+						current_status: statusArr[data.dataList[i].status],
+						current_position: data.dataList[i].posinfo
+					}	
+				};
+				console.log(obj)
+				_this.setState({
+					data: obj
+				})
+				// console.log(data)
+			}),
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
+		});
+	}
 	render(){
 		const { data } = this.state;
-		const dataSource = data.map((item) => {
-			const obj = {};
-			Object.keys(item).forEach((key) => {
-				obj[key] = key === 'key' ? item[key] : item[key].value;
-			});
-			return obj;
-		});
 		const columns = this.columns;
 		const pagination = this.pagination;
 		return(
@@ -149,7 +164,7 @@ export default class GpsList extends React.Component {
 					</div>
 					<div className="topbar-cell">
 						<span className="fr">
-							<Button type="primary"><span><Icon type="reload" /></span>刷新</Button>
+							<Button type="primary" onClick={this.fetch}><span><Icon type="reload" /></span>刷新</Button>
 							<Button type="primary"><span><Icon type="export" /></span>导出</Button>
 						</span>
 					</div>
@@ -224,7 +239,7 @@ export default class GpsList extends React.Component {
 						</Col>
 					</Row>
 					<div style={{ marginTop: 20 }}>
-						<Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} pagination={pagination}/>
+						<Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={pagination}/>
 					</div>
 				</div>
 			</div>	

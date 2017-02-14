@@ -164,7 +164,7 @@ class AssetStatus extends React.Component {
 			width: '10%',
 		}, {
 			title: '在线',
-			dataIndex: 'inline',
+			dataIndex: 'offline',
 			width: '4%',
 		},{
 			title: '设备状态',
@@ -184,11 +184,11 @@ class AssetStatus extends React.Component {
 			width: '13%',
 		},{
 			title: '跟踪数据',
-			dataIndex: 'tracedata',
+			dataIndex: 'traceStatus',
 			width: '7%',
 		},{
 			title: '回款状态',
-			dataIndex: 'receivestatus',
+			dataIndex: 'payStatus',
 			width: '7%',
 		}, {
 			width: '7%',
@@ -205,93 +205,33 @@ class AssetStatus extends React.Component {
 			),
 		}];
 		this.state = {
-			data: [{
-				key: '0',
-				devicename: {
-					value: (<div><ul><li>闽A00000-2</li><li>测试客户</li><li>1234</li></ul></div>)
-				},
-				type: {
-					value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
-				},
-				organization: {
-					value: '测试专用111'
-				},
-				inline: {
-					value: '1'
-				},
-				devicestatus: {
-					value: 'GPS定位 上传时间间隔:10'
-				},
-				positiontype: {
-					value: (<div style={{textAlign: 'center'}}>GPS</div>)
-				},
-				currentposition: {
-					value: '江苏省盐城市大丰市大丰海堤',
-				},
-				lasttime: {
-					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
-				},
-				tracedata: {
-					value: '高危'
-				},
-				receivestatus: {
-					editable: false,
-					value: '正常'
-				}
-			},{
-				key: '1',
-				devicename: {
-					value: (<div><ul><li>闽A00000-2</li><li>测试客户</li><li>1234</li></ul></div>)
-				},
-				type: {
-					value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
-				},
-				organization: {
-					value: '测试专用111'
-				},
-				inline: {
-					value: '0'
-				},
-				devicestatus: {
-					value: 'GPS定位 上传时间间隔:10'
-				},
-				positiontype: {
-					value: (<div style={{textAlign: 'center'}}>GPS</div>)
-				},
-				currentposition: {
-					value: '江苏省盐城市大丰市大丰海堤',
-				},
-				lasttime: {
-					value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
-				},
-				tracedata: {
-					value: '高危'
-				},
-				receivestatus: {
-					editable: false,
-					value: '正常'
-				}
-			}]
+			data: [],
+			jj: '111'
 		};
 		this.callback = this.callback.bind(this);
+		this.fetch = this.fetch.bind(this);
 	}
 	componentDidMount(){
-		const queryObj = {
-
-		};
+		this.fetch();
+	}
+	callback(key) {
+		console.log(key);
+	}
+	
+	fetch(){
+		let _this = this;
 		W.ajax('http://localhost:4000/query.json',{
 			dataType:'json',//服务器返回json格式数据
 			type:'get',//HTTP请求类型
 			timeout:10000,//超时时间设置为10秒；
 			headers:{'Content-Type':'application/json'},	              
-			success: (data) => {
-				//服务器返回响应，根据响应结果，分析是否登录成功；
-				let obj
-				for(var i = 0; i<data.dataList.length; i++){
-					obj = {
+			success: ((ret) => {
+				var obj=[];
+				for(var i = 0; i<ret.dataList.length; i++){
+					obj[i] = {
 						key: i,
 						devicename: {
-							value: (<div><ul><li>data.dataList[i].gpsName</li><li>data.dataList[i].customerName</li><li>data.dataList[i].vehicleType</li></ul></div>)
+							value: (<div><ul><li>{ret.dataList[i].gpsName}</li><li>{ret.dataList[i].customerName}</li><li>{ret.dataList[i].vehicleType}</li></ul></div>)
 						},
 						type: {
 							value: (<div><ul><li>有线/WY200</li><li>0868120144159875</li><li>1064846805191</li></ul></div>)
@@ -299,56 +239,61 @@ class AssetStatus extends React.Component {
 						organization: {
 							value: '测试专用111'
 						},
-						inline: {
-							value: '1'
+						offline: {
+							value: ret.dataList[i].offline
 						},
 						devicestatus: {
-							value: 'GPS定位 上传时间间隔:10'
+							value: ret.dataList[i].statusDes
 						},
 						positiontype: {
-							value: (<div style={{textAlign: 'center'}}>GPS</div>)
+							value: (<div style={{textAlign: 'center'}}>{ret.dataList[i].gpsLbs}</div>)
 						},
 						currentposition: {
-							value: '江苏省盐城市大丰市大丰海堤',
+							value: ret.dataList[i].posinfo,
 						},
 						lasttime: {
-							value: (<div><ul><li>2017-01-09 07:20:08</li><li>2017-01-10 10:39:31</li></ul></div>)
+							value: (<div><ul><li>{W.dateToString(new Date(parseInt(ret.dataList[i].lastGpsTime)))}</li><li>{W.dateToString(new Date(parseInt(ret.dataList[i].updateTime)))}</li></ul></div>)
 						},
-						tracedata: {
-							value: '高危'
+						traceStatus: {
+							value: ret.dataList[i].traceStatus
 						},
-						receivestatus: {
-							editable: false,
-							value: '正常'
+						payStatus: {
+							value: ret.dataList[i].payStatus
 						}
-					}
-					console.log(obj)
-				}
-				// const obj = data.dataList.map((item) => {
-				// 	return data.dataList[0]
-				// })	
-				// console.log(obj)
+					}	
+				};
+				console.log(obj)
+				_this.setState({
+					data: obj
+				})
 				
-			},
+			}),
 			error:function(xhr,type,errorThrown){
 				//异常处理；
 				console.log(type);
 			}
 		});
-		// this.fetch();
+		// console.log( this.state.data);
 	}
-	callback(key) {
-		console.log(key);
-	}
-	
 	render(){
 		const { data } = this.state;
+		const traStatusArr = ["", "正常", "可疑", "高危"];
+		const payStatusArr = ["", "正常", "逾期", "不良", "拖车", "结清"];
+		const traColorArr = ['','greencir','orangecir','redcir'];
+		const psColorArr2 = ["", "greencir", "redcir", "purplecir", "orangecir", "skybluecir"];
+		let traceStatus;
+		let payStatus;
 		for(var i = 0;i<data.length;i++){
-			if(data[i].inline.value == 0){
-				data[i].inline.value = (<span className='icon icon-greencir'></span>);
+			if(data[i].offline.value == 0){
+				data[i].offline.value = (<span className='icon icon-greencir'></span>);
 			}else{
-				data[i].inline.value = (<span className='icon icon-graycir'></span>);
+				data[i].offline.value = (<span className='icon icon-graycir'></span>);
 			}
+			traceStatus = traStatusArr[data[i].traceStatus.value];
+			data[i].traceStatus.value = (<div><span className={"icon icon-" + traColorArr[data[i].traceStatus.value]}></span><span></span>{traceStatus}</div>);
+			
+			payStatus = payStatusArr[data[i].payStatus.value];
+			data[i].payStatus.value = (<div><span className={"icon icon-" + psColorArr2[data[i].payStatus.value]}></span><span></span>{payStatus}</div>);
 		}
 		const dataSource = data.map((item) => {
 			const obj = {};
@@ -364,7 +309,7 @@ class AssetStatus extends React.Component {
 					<div className="content-layout pl20 pr20">
 						<div className="topbar"> 
 							<div className="topbar-cell">
-								<b className="topbar-tit">资产状态</b>
+								<b className="topbar-tit" >资产状态</b>
 							</div>
 							<div className="topbar-cell">
 								<span className="fr">
@@ -388,7 +333,7 @@ class AssetStatus extends React.Component {
 								<TabPane tab="设备功能报警" key="11"></TabPane>
 							</Tabs>
 							<ListSearch />
-							<Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+							<Table rowSelection={rowSelection} columns={columns}  dataSource={dataSource}/>
 						 </div>
 					</div>
 				</div>	
