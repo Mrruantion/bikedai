@@ -34,7 +34,15 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 100%;
   transition: all .3s;
 }
-
+.menu-left-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #293038;
+    width: 183px;
+    overflow-x: hidden;
+    transition: all .3s;
+}
 .layout-aside-collapse .layout-sider {
   width: 64px;
   overflow: visible;

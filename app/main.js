@@ -100,33 +100,35 @@ class App extends React.Component {
       <div>
 		<Header />
 		<div className={collapse ? "layout-aside layout-aside-collapse" : "layout-aside"}>
-			<aside className="layout-sider">
-			  <Menu mode={collapse ? "vertical" : "inline"} theme="dark" defaultOpenKeys={['sub1','sub2','sub3']} style={{ color: '#c4c7ca' }}>
-				<SubMenu key="sub1" title={<span><Icon type="cloud-o" />{!collapse && <span className="nav-text">风控服务</span>}</span>}>
-					<Menu.Item key="1"><Link to="/assetStatus">资产状态</Link></Menu.Item>
-					<Menu.Item key="2"><Link to="/position">位置跟踪</Link></Menu.Item>
-					<Menu.Item key="3"><Link to="/analysis">趋势分析</Link></Menu.Item>
-					<Menu.Item key="4"><Link to="/statisticReport">报表统计</Link></Menu.Item>
-					<Menu.Item key="5"><Link to="/riskMain">暗访追车</Link></Menu.Item>
-				</SubMenu>
-				<SubMenu key="sub2" title={<span><Icon type="tablet" />{!collapse && <span className="nav-text">数据中心</span>}</span>}>
-					<Menu.Item key="6"><Link to="/dataView">数据概览</Link></Menu.Item>
-					<Menu.Item key="7"><Link to="/customer_list">客户管理</Link></Menu.Item>
-					<Menu.Item key="8"><Link to="/equipmentCenter">设备中心</Link></Menu.Item>
-					<Menu.Item key="9"><Link to="/area">区域管理</Link></Menu.Item>
-					<Menu.Item key="10"><Link to="/event_list">事件中心</Link></Menu.Item>
-				</SubMenu>
-				<SubMenu key="sub3" title={<span><Icon type="team" />{!collapse && <span className="nav-text">用户中心</span>}</span>}>
-					<Menu.Item key="11"><Link to="/accountMain">账号管理</Link></Menu.Item>
-					<Menu.Item key="12"><Link to="/messageCenter">公告通知</Link></Menu.Item>
-					<Menu.Item key="13"><Link to="/work_list">工单管理</Link></Menu.Item>
-					<Menu.Item key="14"><Link to="/trainingCenter">培训中心</Link></Menu.Item>
-				</SubMenu>
-			  </Menu>
-			  <div className="aside-action" onClick={this.onCollapseChange}>
-				{collapse ? <Icon type="right" /> : <Icon type="left" />}
-			  </div>
-			</aside>
+			<div className="menu-left-wrap" style={collapse?{width: 64}:{width:183}}>
+				<aside className="layout-sider">
+					<Menu mode={collapse ? "vertical" : "inline"} theme="dark" defaultOpenKeys={['sub1','sub2','sub3']} style={{ color: '#c4c7ca' }}>
+						<SubMenu key="sub1" title={<span><Icon type="cloud-o" />{!collapse && <span className="nav-text">风控服务</span>}</span>}>
+							<Menu.Item key="1"><Link to="/assetStatus">资产状态</Link></Menu.Item>
+							<Menu.Item key="2"><Link to="/position">位置跟踪</Link></Menu.Item>
+							<Menu.Item key="3"><Link to="/analysis">趋势分析</Link></Menu.Item>
+							<Menu.Item key="4"><Link to="/statisticReport">报表统计</Link></Menu.Item>
+							<Menu.Item key="5"><Link to="/riskMain">暗访追车</Link></Menu.Item>
+						</SubMenu>
+						<SubMenu key="sub2" title={<span><Icon type="tablet" />{!collapse && <span className="nav-text">数据中心</span>}</span>}>
+							<Menu.Item key="6"><Link to="/dataView">数据概览</Link></Menu.Item>
+							<Menu.Item key="7"><Link to="/customer_list">客户管理</Link></Menu.Item>
+							<Menu.Item key="8"><Link to="/equipmentCenter">设备中心</Link></Menu.Item>
+							<Menu.Item key="9"><Link to="/area">区域管理</Link></Menu.Item>
+							<Menu.Item key="10"><Link to="/event_list">事件中心</Link></Menu.Item>
+						</SubMenu>
+						<SubMenu key="sub3" title={<span><Icon type="team" />{!collapse && <span className="nav-text">用户中心</span>}</span>}>
+							<Menu.Item key="11"><Link to="/accountMain">账号管理</Link></Menu.Item>
+							<Menu.Item key="12"><Link to="/messageCenter">公告通知</Link></Menu.Item>
+							<Menu.Item key="13"><Link to="/work_list">工单管理</Link></Menu.Item>
+							<Menu.Item key="14"><Link to="/trainingCenter">培训中心</Link></Menu.Item>
+						</SubMenu>
+					</Menu>
+					<div className="aside-action" onClick={this.onCollapseChange}>
+						{collapse ? <Icon type="right" /> : <Icon type="left" />}
+					</div>
+				</aside>
+			</div>
 			<div className="layout-main">
 				{this.props.children}
 			</div>

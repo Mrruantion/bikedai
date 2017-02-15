@@ -24,40 +24,38 @@ const ListSearch = React.createClass({
 				  </Col>
 				</Row>
 				<Row gutter={16} style={{ marginTop: 20, marginBottom: 20}}>
-				  <Col span={9}>
+				  <Col span={6}>
 					所属组织 <Input style={{ width: "70%"}}/>
 				  </Col>
-				  <Col span={5}>
+				  <Col span={3} style={{ width: '15%'}}>
 					在线 
-					<Select defaultValue="全部" style={{ width: 88 }}>
+					<Select defaultValue="全部" style={{ width: 76 }}>
 						<Option value="全部">全部</Option>
 						<Option value="在线">在线</Option>
 						<Option value="离线">离线</Option>
 					</Select>
 				  </Col>
-				  <Col span={5}>
+				  <Col span={3} style={{ width: '17%'}}>
 					设备类型 
-					<Select defaultValue="全部" style={{ width: 88 }}>
+					<Select defaultValue="全部" style={{ width: 76 }}>
 						<Option value="全部">全部</Option>
 						<Option value="有线">有线</Option>
 						<Option value="无线">无线</Option>
 						<Option value="OBD">OBD</Option>
 					</Select>
 				  </Col>
-				  <Col span={5}>
+				  <Col span={3} style={{ width: '17%'}}>
 					跟踪数据
-					<Select defaultValue="全部" style={{ width: 88 }}>
+					<Select defaultValue="全部" style={{ width: 76 }}>
 						<Option value="全部">全部</Option>
 						<Option value="正常">正常</Option>
 						<Option value="可疑">可疑</Option>
 						<Option value="高危">高危</Option>
 					</Select>
 				  </Col>
-				</Row>
-				<Row gutter={16} >
-				  <Col span={6} style={{ width: '19%'}}>
+				  <Col span={3} style={{ width: '17%'}}>
 					回款状态
-					<Select defaultValue="全部" style={{ width: 88 }}>
+					<Select defaultValue="全部" style={{ width: 66 }}>
 						<Option value="全部">全部</Option>
 						<Option value="正常">正常</Option>
 						<Option value="逾期">逾期</Option>
@@ -66,7 +64,7 @@ const ListSearch = React.createClass({
 						<Option value="结清">结清</Option>
 					</Select>
 				  </Col>
-				  <Col span={6}>
+				  <Col span={2}>
 					<Button type="primary">查询</Button>
 				  </Col>
 				</Row>
@@ -76,61 +74,6 @@ const ListSearch = React.createClass({
 })
 
 
-class EditableCell extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			value: this.props.value,
-			editable: this.props.editable || false,
-		}
-	}
-	componentWillReceiveProps(nextProps) {
-		if(nextProps.editable !== this.state.editable) {
-			this.setState({ editable: nextProps.editable });
-			if(nextProps.editable) {
-				this.cacheValue = this.state.value;
-			}
-		}
-		if(nextProps.status && nextProps.status !== this.props.status) {
-			if(nextProps.status === 'save') {
-				this.props.onChange(this.state.value);
-			}else if(nextProps.status === 'cancel') {
-				this.setState({ value: this.cacheValue });
-				this.props.onChange(this.cacheValue);
-			}
-		}
-	}
-	shouldComponentUpdate(nextProps, nextState) {
-		return nextProps.editable !== this.state.editable ||
-			nextState.value !== this.state.value;
-	}
-	handleChange(value) {
-		console.log(value);
-		this.setState({ value });
-	}
-	render() {
-		const { value, editable } = this.state;
-		return (<div>
-		{
-			editable ?
-			<div>
-				<Select
-					style={{ width: 100 }}
-					placeholder={value}
-					onChange={this.handleChange.bind(this)}
-				>
-					<Option value="正在使用" >正在使用</Option>
-					<Option value="已注销" >已注销</Option>
-				</Select>
-			</div>
-			:
-			<div className="editable-row-text">
-				{value || ' '}
-			</div>			
-		}
-		</div>);
-	}
-}
 
 const rowSelection = {
 	onChange: (selectedRowKeys, selectedRows) => {
@@ -273,7 +216,6 @@ class AssetStatus extends React.Component {
 				console.log(type);
 			}
 		});
-		// console.log( this.state.data);
 	}
 	render(){
 		const { data } = this.state;
