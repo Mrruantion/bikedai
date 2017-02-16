@@ -29,6 +29,21 @@ import RiskMap from './view/analysis/page/risk_map.js'
 import RiskTrend from './view/analysis/page/risk_trend.js'
 /*报表统计*/
 import StatisticReport from './view/statisticsReport/statisticsReport.js'
+import AlarmType1 from './view/statisticsReport/page/alarmType1.js'
+import AlarmType2 from './view/statisticsReport/page/alarmType2.js'
+import AlarmType3 from './view/statisticsReport/page/alarmType3.js'
+import AlarmType4 from './view/statisticsReport/page/alarmType4.js'
+import AlarmType5 from './view/statisticsReport/page/alarmType5.js'
+import AlarmType6 from './view/statisticsReport/page/alarmType6.js'
+import AlarmType7 from './view/statisticsReport/page/alarmType7.js'
+import AlarmType8 from './view/statisticsReport/page/alarmType8.js'
+import AlarmType9 from './view/statisticsReport/page/alarmType9.js'
+import AlarmType10 from './view/statisticsReport/page/alarmType10.js'
+import MileageReport from './view/statisticsReport/page/mileageReport.js'
+import OfflineReport from './view/statisticsReport/page/offlineReport.js'
+import PartReport from './view/statisticsReport/page/partReport.js'
+import InstallReport from './view/statisticsReport/page/installReport.js'
+import UninstallReport from './view/statisticsReport/page/uninstallReport.js'
 /*暗访追车*/
 import RiskMain from './view/riskMain/riskMain.js'
 import HuntList from './view/riskMain/page/hunt_list.js'
@@ -153,7 +168,24 @@ render((
 			
 			<Route path="/position" component={Position} />
 			<Route path="/assetStatus" component={AssetStatus} />
-			<Route path="/statisticReport" component={StatisticReport} />
+			<Route path="/statisticReport" component={StatisticReport}>
+				<IndexRoute component={AlarmType1} />
+				<Route path="alarmType1" component={AlarmType1} />
+				<Route path="alarmType2" component={AlarmType2} />
+				<Route path="alarmType3" component={AlarmType3} />
+				<Route path="alarmType4" component={AlarmType4} />
+				<Route path="alarmType5" component={AlarmType5} />
+				<Route path="alarmType6" component={AlarmType6} />
+				<Route path="alarmType7" component={AlarmType7} />
+				<Route path="alarmType8" component={AlarmType8} />
+				<Route path="alarmType9" component={AlarmType9} />
+				<Route path="alarmType10" component={AlarmType10} />
+				<Route path="mileageReport" component={MileageReport} />
+				<Route path="offlineReport" component={OfflineReport} />
+				<Route path="partReport" component={PartReport} />
+				<Route path="installReport" component={InstallReport} />
+				<Route path="uninstallReport" component={UninstallReport} />
+			</Route>
 			
 			<Route path="riskMain" component={RiskMain}>
                 <IndexRoute component={HuntList}/>

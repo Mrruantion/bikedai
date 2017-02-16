@@ -237,3 +237,42 @@
     width: 50%;
     height: 400px;
 }
+.label-tab-top {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+}
+/*回款*/
+.huikuan .ant-tabs-mini .ant-tabs-tab {
+    width: 56px;
+    font-size: 14px
+}
+.huikuan .ant-tabs {
+    color: rgba(255, 255, 255, 0.75);
+}
+.shuju .ant-tabs-mini .ant-tabs-tab {
+    width: 56px;
+    font-size: 14px
+}
+.shuju .ant-tabs {
+    color: rgba(255, 255, 255, 0.75);
+}
+.shuju .ant-tabs-nav {
+    padding: 0 61px;
+}
+.label-tab-bottom .lines{
+    height:0;
+    border-bottom:1px solid #777;
+    margin-top:5px;
+    margin-bottom: 7px;
+    width:100%;
+}
+.wrappers {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-right: 8px;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Echart from 'echarts/lib/echarts'
 
+import { Tabs } from 'antd';
+const TabPane = Tabs.TabPane;
+
 require('echarts/lib/chart/line')
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
@@ -105,7 +108,7 @@ const option2 = {
             type: 'effectScatter',
             coordinateSystem: 'geo', /*该系列使用的坐标系*/
             data: [{"name":"测试专用111","value":[119.31,25.52]}],
-            symbolSize: [10,10],    /*标记的大小*/
+            symbolSize: [15,15],    /*标记的大小*/
             showEffectOn: 'render', /*绘制完成后显示特效*/
             rippleEffect: {
                 brushType: 'stroke' /*波纹的绘制方式*/
@@ -145,12 +148,10 @@ export default class RiskMap extends React.Component {
 		mapChart.setOption(this.state.option);
 	}
     componentDidUpdate  (prevProps, prevState){
-        if(this.state.option){
+        if(prevState){
             var mapChart = Echart.init(this.refs.mapchart);
             mapChart.setOption(this.state.option);
         }
-        
-       
     }
     btnChange() {
         this.setState({
@@ -166,16 +167,19 @@ export default class RiskMap extends React.Component {
             W('#logo').src = './images/map_trace_logo.png';
             W('#ull1').style.display = 'none';
             W('#ull2').style.display = 'block';
+            W('#state-show').children[0].style.display = "block";
+            W('#state-show').children[1].style.display = "none";
             dsr[0].className = 'fir on';
             dsr[1].className = 'sec';
             this.setState({
                 option: option2
-            });
-            
+            });  
         }else if(n == 2) {
             W('#logo').src = './images/map_pay_logo.png';
             W('#ull1').style.display = 'block';
             W('#ull2').style.display = 'none';
+            W('#state-show').children[0].style.display = "none";
+            W('#state-show').children[1].style.display = "block";
             dsr[0].className = 'fir';
             dsr[1].className = 'sec on';
             this.setState({
@@ -221,7 +225,79 @@ export default class RiskMap extends React.Component {
                             <span className="sec on" onClick={() => this.getData(2)}>回款实时动态</span>
                         </div>
                     </div>
-                    <div id="state-show" style={btn?{width: 100,height:300,backgroundColor: '#fff',display:'block'}:{width: 100,height:300,backgroundColor: '#fff',display:'none'}}></div>
+                    <div id="state-show" style={btn?{width: '100%',minHeight: 400,margin: '10px auto 0',display:'block'}:{width: 100,height:300,backgroundColor: '#fff',display:'none'}}>
+                        <div className="shuju" style={{display: 'none'}}>
+                            <Tabs defaultActiveKey="1" size="small">
+                                <TabPane tab="正常" key="1"></TabPane>
+                                <TabPane tab="可疑" key="2"></TabPane>
+                                <TabPane tab="高危" key="3"></TabPane>
+                            </Tabs>
+                            <table className="label-tab-top">
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">排名</td>
+                                        <td width="55%">所属组织</td>
+                                        <td width="15%">数量</td>
+                                        <td width="20%">比例</td>
+                                    </tr>
+                                </tbody>
+						    </table>
+                            <div className="wrappers">
+                                
+                            </div>
+                            <table className="label-tab-bottom w" id="tb21">
+                                <tbody>
+                                    <tr>
+                                        <td colSpan="4">
+                                            <hr className="lines" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="65%" colSpan="2">全公司</td>
+                                        <td id="t21" width="15%"></td>
+                                        <td id="p21" width="20%"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="huikuan">
+                            <Tabs defaultActiveKey="1" size="small">
+                                <TabPane tab="正常" key="1"></TabPane>
+                                <TabPane tab="逾期" key="2"></TabPane>
+                                <TabPane tab="不良" key="3"></TabPane>
+                                <TabPane tab="拖车" key="4"></TabPane>
+                                <TabPane tab="结清" key="5"></TabPane>
+                            </Tabs>
+                            <table className="label-tab-top">
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">排名</td>
+                                        <td width="55%">所属组织</td>
+                                        <td width="15%">数量</td>
+                                        <td width="20%">比例</td>
+                                    </tr>
+                                </tbody>
+						    </table>
+                            <div className="wrappers">
+                                
+                            </div>
+                            <table className="label-tab-bottom w" id="tb21">
+                                <tbody>
+                                    <tr>
+                                        <td colSpan="4">
+                                            <hr className="lines" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="65%" colSpan="2">全公司</td>
+                                        <td id="t21" width="15%"></td>
+                                        <td id="p21" width="20%"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
                 </div>
 			</div>	
 		)
